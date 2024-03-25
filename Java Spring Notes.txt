@@ -4,3 +4,55 @@
 Source code link:
 	 - https://github.com/darbyluv2code/spring-boot-3-spring-6-hibernate-for-beginners/blob/main/11-appendix/course-links.md
 	 
+Spring:
+	 - a very popular framework for building Java applications.
+	 - provides a large number of helper classes and annotations.
+	 
+	 problem in building a traditional spring application:
+		 - difficult to choose the jar dependency
+		 - choose which configuration to use... xml or java
+		 - how to install server... Tomcat, JBoss...
+		 
+	 - Spring Boot:
+		 - Spring Boot makes it easy to work/get started on Spring development
+		 - it minimizes the amount of manual configuration
+			 - it performs auto-configurations based on props file and jAR classpath
+		 - helps to resolve dependency conflicts(Maven or gradle)
+		 - provides an embedded http server which supports Tomcat,Jetty, Undertow....
+			 - no need to install sever seperately, JAR file will cotain application code and server(ex: mycoolapp.jar)
+			 - as spring boot includes an embedded server, apring boot apps can be run standalone
+				 - i.e we can run spring boot aps from IDE or command line.
+				 
+		 - Spring Boot uses Spring behind the scenes and makes it easier to use Spring.
+		 
+	 - Spring Initializr:
+		 - a website/app to quickly create a spring boot project
+		 - http://start.spring.io
+		 - helps to create maven or gradle project
+		 
+		 - creating a spring boot project:
+			 - go to link http://start.spring.io
+			 - Select Project as Maven
+			 - Select Language as JAVA
+			 - Select Spring Boot version(latest one, avoid selecting snapshot/beta vesrion)
+			 - enter the project details and select java version
+			 - select dependencies(ex: Spring Web)
+			 - Click on Generate to download the zip file.
+			 - Unzip the file
+			 - Import the maven project in IDE
+			 
+		 
+		 
+		 
+	 - Deploying Spring Boot apps:
+		 - Spring Boot applications can be deployed in traditional ways:
+			 - deploy WAR file to an external server: Tomcat, JBoss, WebSphere
+			 
+	 - Spring Boot uses Spring MVC, Spring REST, Spring Core.... in the background(hence it does not replace them)
+	 
+Maven:
+	 - Maven is a utility/framework which is used to automate downlaoding JAR files.
+	 - we need to define/specify the type of dependency we need to doenload.
+	 - Maven will also add the JAR files to the project classpath.
+		 
+
