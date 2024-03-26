@@ -130,3 +130,34 @@ Maven key concepts:
 Maven Project Structure:
 	 - check PPT
 	 
+	 - Maven Wrapper files:
+		 - mvnw files/,aven wrapper files allows us to run Maven project
+		 - if the correct version of maven is not present in teh computer, 
+			 - then it will automaticallly download the correct version and runs Maven
+		 - mvnw.cmd -> for Windows -> mvnw clean compile test
+		 - mvnw.sh -> for Linux/Mac -> ./mvnw clean compile test
+		 
+		 - if we already have maven installed locally then maven wrapper files are not required.
+		 - use mvn clean compile test
+		 
+	 - Application properties:
+		 - By default, Spring Boot will load properties from application.properties file.
+		 - application.properties file is created by spring initializr.
+			 - coach.name = "Mickey"
+		 
+		 - we can read the values from .properties file by injection annotations
+			 - @Value("${coach.name}")
+			   private String name;
+			 
+	 - don't use src/main/webapp directory if your application is packaged as a jar.
+	 - it only works if your application is packaged as a war file
+	 
+	 - Templates:
+		 - SpringBoot has auto configurations for below template engines.
+			 - FreeMarker
+			 - Thymeleaf
+			 - Mustache	
+
+			 
+
+	 
