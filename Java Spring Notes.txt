@@ -41,18 +41,92 @@ Spring:
 			 - Unzip the file
 			 - Import the maven project in IDE
 			 
-		 
-		 
-		 
 	 - Deploying Spring Boot apps:
 		 - Spring Boot applications can be deployed in traditional ways:
 			 - deploy WAR file to an external server: Tomcat, JBoss, WebSphere
 			 
 	 - Spring Boot uses Spring MVC, Spring REST, Spring Core.... in the background(hence it does not replace them)
-	 
-Maven:
-	 - Maven is a utility/framework which is used to automate downlaoding JAR files.
-	 - we need to define/specify the type of dependency we need to doenload.
-	 - Maven will also add the JAR files to the project classpath.
+		
+Creating a REST controller in spring boot:
+	 - @RestController
+		 - used to create a REST controller
+		 - added above the class/function definition
 		 
+	 - @GetMapping:
+		 - used to handle http GET requests
+		 
+Goal/Need of Spring framework:
+	 - Lightweight development with Java POJOs(Plain Old Java Objects)
+	 - Dependency injection to promote loose coupling
+	 - Minimize Boilerplate Java code
+	 
+Spring Core Container:
+	 - it is a factory for creating beans and managing bean dependencies
 
+Aspect Oriented Programming:
+	 - It is used to add functionality to Objects
+	 - i.e we can create seperate services for logging, Security, Transactions... and apply them to our application
+
+Spring projects:
+	 - additional spring modules/add-ons built on top of the core Spring framework.
+	 - Ex:
+		 - Spring cloud -> for cloud integerations
+		 - Spring Data -> for database integration
+		 - Spring Batch -> for creating batch processes
+		 - Spring Security -> for Securing applications
+		 - Spring Web services -> Creating REST and SOAP APIs
+		 - Spring LDAP -> accessing LDAP servers
+		 
+Maven:
+	 - Maven is a project management tool for an application
+	 - maven is used for build management and dependencies.
+	 
+	 - when we build a Java project, we need to download jar files manually and need to manually add it to build path/classpath
+	 - Maven is a utility/framework which is used to automate downlaoding JAR files.
+	 - we need to define/specify the type of dependency we need to download.
+	 - maven will make those JAR files available during compile/run.
+	 - Maven will also add the JAR files to the project classpath(this will be defined in config).
+
+	 - maven will also download the subdependencies required for running the dependency automatcially.
+	 
+	 How Maven downloads jar files:
+		 - the jar files will be present in remote maven central respository.
+		 - Maven will read the config file(pom.xml) of our application
+		 - Maven will then check if jar files are present in maven local repository.
+		 - if jar files are present in local repo, maven will use them to build and run application
+		 - if jar files are not present in local repo, the maven will download the jar files from remote repo through the internet
+		 - and then store the jar files in local repo(local cache)
+		 - then use the jar files to build and run the application
+		 
+	 - advantages of Maven:
+		 - dependency management(no more missing dependencies/jar files)
+		 - build and run project(no more buildpath/classpath issues)
+		 - standard directory structure
+		 
+Maven key concepts:
+	 - pom.xml file:
+		 - Project Object Model file
+		 - define the dependency configuration for the project
+		 - always located in the root directory of maven project.
+		 
+	 - POM file structure:
+		 - pom.xml
+			 - project metadata
+				 - gives details about the project such as Name, version, Output file type(WAR/JAR)
+			 - project dependencies
+				 - defines the list of projects/libraries the application depends on(Spring Hiberbate,...)
+			 - plugins
+				 - defines additinal custom tasks which needs to be run
+				 - such as generating unit test reports etc..
+				 
+		 - project coordinates:
+			 - it is used to uniquely identify a project
+			 - groupId, artifactId, version... which are similar to city, street and house number in GPS cordinates
+			 - see PPT for more info
+			 - GAV - GroupId, ArtifactId, Version ---> Nomenclature in Java world(good to know)
+			 - link to find dependency cordinates:
+				 - https://central.sonatype.com/
+		 
+Maven Project Structure:
+	 - check PPT
+	 
