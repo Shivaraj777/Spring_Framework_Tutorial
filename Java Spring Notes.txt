@@ -164,6 +164,22 @@ Spring Boot Actuators:
 Spring boot actuator - securing endpoints:
 	 - the Secuirty user name is: user
 	 - the default generated password will be displayed in console after runnning the program
+	 
+Running spring boot apps from command line:
+	 - running via the jar command:
+		 - java -jar jar_name.jar
+		 - jar_name.jar -> jar file created in target directory after packaging
+		 
+	 - using spring boot maven plugin:
+		 - mvnw spring-boot:run
+		 
+	 - to run the spring boot application in command line, go to the spring boot project root directory.
+		 
+	 - spring boot maven plugin:
+		 - it is used to package an application to a jar/war file
+			 - mvnw package
+		 - it is also used to run the spring boot application
+			 - mvnw spring-boot:run
 
 			 
 
