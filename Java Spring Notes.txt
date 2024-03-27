@@ -160,6 +160,10 @@ Maven Project Structure:
 
 Spring Boot Actuators:
 	 - used to expose endpoints, which are used to monitor and manage the application
+	 
+Spring boot actuator - securing endpoints:
+	 - the Secuirty user name is: user
+	 - the default generated password will be displayed in console after runnning the program
 
 			 
 
