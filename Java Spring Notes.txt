@@ -180,7 +180,4 @@ Running spring boot apps from command line:
 			 - mvnw package
 		 - it is also used to run the spring boot application
 			 - mvnw spring-boot:run
-
-			 
-
 	 
