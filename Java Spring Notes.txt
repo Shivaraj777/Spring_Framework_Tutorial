@@ -156,7 +156,10 @@ Maven Project Structure:
 		 - SpringBoot has auto configurations for below template engines.
 			 - FreeMarker
 			 - Thymeleaf
-			 - Mustache	
+			 - Mustache
+
+Spring Boot Actuators:
+	 - used to expose endpoints, which are used to monitor and manage the application
 
 			 
 
