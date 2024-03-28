@@ -180,4 +180,54 @@ Running spring boot apps from command line:
 			 - mvnw package
 		 - it is also used to run the spring boot application
 			 - mvnw spring-boot:run
+			 
+			 
+Spring Core:
+
+Inversion of Control:
+	 - it is the approach of outsourcing the constructiona nd management of object.
+	 - meaning, we will assign another entity which will handle creating and managing objects on our behalf.
+	 - ex:
+		 - consider an application MyApp.
+		 - consider an Object factory which creates objects absed on requirement.
+		 - when application requests for a Coach object, object factory will assign a coach(hockey coach, footbal coach...) based on configuration.
+	 - in Spring, Spring Container acts like an Object factory
 	 
+	 - Spring container has two function:
+		 - Create and manage objects(Inversion control)
+		 - Inject object dependencies(Dpendency injection)
+		 
+	 - Spring container can be configured in 3 ways:
+		 - XML configuration(legacy - old)
+		 - Java Annotations - modern
+		 - Java Source code - modern
+		 
+Dependency injection:
+	 - Dependency injection makes use of the Dependency Inversion principle.
+	 - the application delegates another object/entity to provide dependencies for it.
+	 - meaning, if an application requests an object and that object is dependant on ceratin components/helper components, then it is assembled before provisioning.
+	 
+	 - Types of dependency injection:
+		 - Constructor injection
+		 - Setter injection
+		 
+AutoWiring:
+	 - for dependency injection, spring uses auto wiring.
+	 - Spring automatically injects a dependency to a controller by matching the class/interface name. This is called auto wiring.
+	 
+	 (constructor injection)
+	 - @Autowired annotation is used on constructor.
+	 - if there is only one constructor, then Autowired annotation is optional.
+		 - spring automatically injects the dependency.
+	 
+	
+	 - how dependency is injected:
+		 - spring will check if any class/interface is annotated with Component annotation.
+		 - if it is annotated, then it will inject the dependency to the class or interface.
+		 
+	 Spring Bean:
+		 - a class which is annotated as @Component is called a Spring Bean.
+		 - a Spring Bean is a regular Java class which is managed by Spring.
+
+Constructor injection:
+	 - 
