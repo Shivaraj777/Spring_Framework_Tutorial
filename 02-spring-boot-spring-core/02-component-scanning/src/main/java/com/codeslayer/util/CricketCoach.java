@@ -1,4 +1,4 @@
-package com.codeslayer.springCoreDemo.common;
+package com.codeslayer.util;
 
 import org.springframework.stereotype.Component;
 

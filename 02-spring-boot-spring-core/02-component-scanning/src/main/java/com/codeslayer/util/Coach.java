@@ -1,4 +1,4 @@
-package com.codeslayer.springCoreDemo.common;
+package com.codeslayer.util;
 
 public interface Coach {
     String getDailyWorkOut();
