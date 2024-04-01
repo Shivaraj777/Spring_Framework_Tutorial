@@ -230,4 +230,11 @@ AutoWiring:
 		 - a Spring Bean is a regular Java class which is managed by Spring.
 
 Constructor injection:
-	 - 
+	 - See PPT
+	 
+Field injection:
+	 - injection method which is not recommended by the spring development team(makes it harder to unit test)
+	 - we inject the dependencies by setting field values on the class directly.
+	 - it is accomplished by java reflection principle
+	 
+	 - @Autowired annotation is used on the instance variables directly and we do not need to use constructors or setter methods.
