@@ -238,3 +238,12 @@ Field injection:
 	 - it is accomplished by java reflection principle
 	 
 	 - @Autowired annotation is used on the instance variables directly and we do not need to use constructors or setter methods.
+	 
+Annotation AutoWiring and Qualifiers:
+	 - we can use the qualifier annotation in the arguments of constructor or setter functions 
+		 - when there are multiple implementations(beans/Components) of an interface
+		 - this will help Spring to identify which bean to use.
+		 
+Primary annotation:
+	 - it is used to specify which bean can be implemented/injected by default if there are multiple beans.
+	 - @Primary annotation should be added in the Bean class.
