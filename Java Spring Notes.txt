@@ -276,5 +276,14 @@ The client code must clean up prototype-scoped objects and release expensive res
 
 Prototype Beans and Lazy Initialization
 Prototype beans are lazy by default. There is no need to use the @Lazy annotation for prototype scopes beans.
+
+
+Java Config Bean:
+	 - here we are creating a Bean method(@Bean annotation) by using Configuration Class - @Configuration annotation
+	 - then inject the bean id to the controller class.
+	 
+	 - use case for @Bean annotation:
+		 - when using 3rd part or external SDK we cannot use @Component annotation in the 3rd part class as we will not have access.
+		 - instead we will create a Bean method to to reference to the 3rd part class and create the Bean.
 		 
 		 
