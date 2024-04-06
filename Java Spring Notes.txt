@@ -285,5 +285,30 @@ Java Config Bean:
 	 - use case for @Bean annotation:
 		 - when using 3rd part or external SDK we cannot use @Component annotation in the 3rd part class as we will not have access.
 		 - instead we will create a Bean method to to reference to the 3rd part class and create the Bean.
+	
+
+Spring Hibernate:
+	 - Hibernate is a framework for persisting/saving java objects in a database.
+	 
+JPA:
+	 - Jakarata Persistence API.
+	 - previously known as Java Persistence API.
+	 - standarad API used for Object to Relational Mapping
+	 
+	 - JPA defines a set of interfaces
+	 - and to use it we need to create an implementation of the ineterface.
+	 
+	 Types of JPA vendor implementations:
+		 - Hibernate
+		 - EclipseLink
 		 
+	 - Hibernate is the default implementation of JPA in Spring Boot
+	 - we can switch implementations easily because we code the ORM code based on JPA specific instructions.
+		 - we just need to make configurational changes.
+		 
+	 - Hibernate JPA makes use of JDBC in the background to make database communications.
+	 
+	 
+	 
+	 
 		 
