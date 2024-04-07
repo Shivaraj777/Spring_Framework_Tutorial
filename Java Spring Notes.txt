@@ -308,6 +308,13 @@ JPA:
 		 
 	 - Hibernate JPA makes use of JDBC in the background to make database communications.
 	 
+Command line runner:
+	 - Command line runner is hook from spring framework
+	 - it allows to execute code after the spring beans have been loaded into the application-context.
+	 
+	 - dependencies for spring hibernate using MySQL:
+		 - mySQL driver
+		 - spring data jpa
 	 
 	 
 	 
