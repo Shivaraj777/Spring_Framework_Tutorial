@@ -14,6 +14,7 @@ public class CruddemoApplication {
 		SpringApplication.run(CruddemoApplication.class, args);
 	}
 
+
 	// define a bean for creating command-line application
 	// command line runner is a hook from spring boot framework
 	// the below method is executed after all the spring beans are loaded
@@ -24,9 +25,11 @@ public class CruddemoApplication {
 		// it is a shorthand notation for providing an implementation of CommandRunner interface
 		return runner -> {
 			// System.out.println("Hello");
-			createStudent(studentDAO);
+			// createStudent(studentDAO);
+			createMultipleStudents(studentDAO);
 		};
 	}
+
 
 	// method to create a student
 	private void createStudent(StudentDAO studentDAO){
@@ -40,5 +43,26 @@ public class CruddemoApplication {
 
 		// display the id of the saved student
 		System.out.println("Saved student generated ID: " + tempStudent.getId());
+	}
+
+
+	// method to create multiple students
+	private void createMultipleStudents(StudentDAO studentDAO){
+		// create multiple students
+		System.out.println("Creating 3 student objects...");
+		Student tempStudent1 = new Student("Kakeru", "Ryuen", "ryuen@gmail.com");
+		Student tempStudent2 = new Student("Suzune", "Horikita", "horikita@gmail.com");
+		Student tempStudent3 = new Student("Hiyori", "Shiina", "hiyori@gmail.com");
+
+		// save the student objects
+		System.out.println("Saving the students...");
+		studentDAO.save(tempStudent1);
+		studentDAO.save(tempStudent2);
+		studentDAO.save(tempStudent3);
+
+		// display the ID of the saved students
+		System.out.println("Saved student 1 generated ID: " + tempStudent1.getId());
+		System.out.println("Saved student 2 generated ID: " + tempStudent2.getId());
+		System.out.println("Saved student 3 generated ID: " + tempStudent3.getId());
 	}
 }
