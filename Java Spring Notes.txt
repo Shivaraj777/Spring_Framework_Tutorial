@@ -315,6 +315,16 @@ Command line runner:
 	 - dependencies for spring hibernate using MySQL:
 		 - mySQL driver
 		 - spring data jpa
+		 
+JPA Annotations:
+	 - 
+	 
+Saving Java Object with JPA:
+	 - JPA entity manager and Data Source are automatically created by Spring Boot.
+		 - by configurations defined in pom.xml file and application.properties file.
+		 
+	 - Spring Repository annotation provide translation of any JDBC related execptions.
+		 - basically converts checked exceptions into unchecked exceptions.
 	 
 	 
 	 
