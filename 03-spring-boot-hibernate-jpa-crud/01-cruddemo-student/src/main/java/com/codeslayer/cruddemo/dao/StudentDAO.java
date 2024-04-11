@@ -7,4 +7,6 @@ import com.codeslayer.cruddemo.entity.Student;
 public interface StudentDAO {
 
     void save(Student theStudent);  // create and save a student
+
+    Student findById(Integer id);  // retrieve the Student data based on ID
 }

@@ -326,6 +326,21 @@ Saving Java Object with JPA:
 	 - Spring Repository annotation provide translation of any JDBC related execptions.
 		 - basically converts checked exceptions into unchecked exceptions.
 	 
+Primary keys:
+	 - PK -> Primary Key
+	 - NN -> Not Null
+	 - AI -> Auto increment
+	 - 
 	 
-	 
+Changing Index of MySQL Auto Increement:
+	 - use SQL query to change start index from next insert:
+		 - ALTER table db_name.table_name AUTO_INCREMENT = start_value;
+		 - ALTER table student_tracker.student AUTO_INCREMENT = 3000;(ex..)
+		 
+	 - reset Auto Increment back to 1:
+		 - TRUNCATE student_tracker.student
+		 - remove all the records from the table and rest Auto Increment start value to 1.
+		 
+Reading objects with JPA:
+	 - 
 		 
