@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 public class CruddemoApplication {
 
@@ -27,8 +29,38 @@ public class CruddemoApplication {
 			// System.out.println("Hello");
 			// createStudent(studentDAO);
 			// createMultipleStudents(studentDAO);
-			readStudent(studentDAO);
+			// readStudent(studentDAO);
+			// readStudents(studentDAO);
+			queryStudentsByLastName(studentDAO);
 		};
+	}
+
+
+	// method tp fetch students based on lastName
+	private void queryStudentsByLastName(StudentDAO studentDAO) {
+		// get the list of students
+		System.out.println("Retrieving the students with lastName from table...");
+		List<Student> students = studentDAO.findByLastName("Ayanokoji");
+
+		// display the list of students
+		System.out.println("Displaying the students...");
+		for(Student tempStudent : students){
+			System.out.println(tempStudent);
+		}
+	}
+
+
+	// method to fetch all students from database
+	public void readStudents(StudentDAO studentDAO){
+		// get the list of students
+		System.out.println("Retrieving all the students from table...");
+		List<Student> students = studentDAO.findAll();
+
+		// display the list of students
+		System.out.println("Displaying the students...");
+		for(Student tempStudent : students){
+			System.out.println(tempStudent);
+		}
 	}
 
 

@@ -342,5 +342,13 @@ Changing Index of MySQL Auto Increement:
 		 - remove all the records from the table and rest Auto Increment start value to 1.
 		 
 Reading objects with JPA:
-	 - 
+
+Querying objects with JPA:
+	 - JPQL:
+		 - JPA Query language
+		 
+	 - JPQL Named parameters:
+		 - we can add parameters to JPA queries by using JPQL named parameters.
+		 - the named paramter can be updated with any data we provide
+		 - lastName = :named_Parameter
 		 
