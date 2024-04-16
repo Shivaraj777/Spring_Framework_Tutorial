@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 
 import java.util.List;
 
-@SpringBootApplication
+@SpringBootApplication  // define as spring boot application
 public class CruddemoApplication {
 
 	public static void main(String[] args) {
