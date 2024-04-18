@@ -352,3 +352,5 @@ Querying objects with JPA:
 		 - the named paramter can be updated with any data we provide
 		 - lastName = :named_Parameter
 		 
+
+		 
