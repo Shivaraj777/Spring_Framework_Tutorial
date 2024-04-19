@@ -352,5 +352,35 @@ Querying objects with JPA:
 		 - the named paramter can be updated with any data we provide
 		 - lastName = :named_Parameter
 		 
+REST services:
+	 - Representational State Transfer
+	 
+JSON:
+	 - javaScript Object Notation
+	 
+Spring Boot Rest HTTP basics:
+	 - HTTP request message consists of 3 parts:
+		 - Request line: contains the HTTP method(GET, POST....)
+		 - header variables: contains meta data(content-type, token....) of request
+		 - message body: content of the message request
+		 
+	 - HTTP response message consists of 3 parts:
+		 - Request line: consistes of server protocol and status code(define status of request)
+		 - header variables: response metadata(line content-type, data size, etc...)
+		 - message body: content of the response message
+		 
+Java POJO:
+	 - Java POJO is a plane java object or Java class.
+	 - Jackson is a very popular JSON data binding project
+		 - used to convert JSON data to Java object or vice versa
+		 - Spring boot starter web automatically includes dependency for Jackson
+		 
+	     - we have to define the POJO class and setter and getter methods inside the class
+		 - Jackson will automatically access the setter methods and convert JSON data to POJO objects.
+		 - Jackson will automatically access the getter methods and convert Java POJO data to JSON.
+		 
+		 - Spring automatically handles Jackson integration.
+	 
 
+	
 		 
