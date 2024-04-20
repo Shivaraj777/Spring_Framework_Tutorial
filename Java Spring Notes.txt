@@ -381,6 +381,11 @@ Java POJO:
 		 
 		 - Spring automatically handles Jackson integration.
 	 
+Spring REST - with Path variables:
+	 - @PatVariable annotation:
+		 - it is used to bind the parameter passed in the url with the request method argument.
+		 - by default name of the PathVariable in url and method argument should be same.
+	 
 
 	
 		 
