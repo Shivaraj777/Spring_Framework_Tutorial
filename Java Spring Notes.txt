@@ -387,6 +387,10 @@ Spring REST - with Path variables:
 		 - by default name of the PathVariable in url and method argument should be same.
 	 
 Exception handler:
-	 - 
+	 - @ControllerAdvice annotation:
+		 - it is used to perform pre-process or post-process requests for rest controller api calls.
+		 - this acts as a global service and multiple controllers can make use of it
+		 - global exceptional handling
+		 
 	
 		 
