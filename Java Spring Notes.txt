@@ -405,3 +405,11 @@ for automatic reloading of application server:
 			 - Click on Advanced settings
 			 - Select Allow auto make to start even if application is running.
 			 
+Defining service layer using spring boot:
+	 - use of service layer:
+		 - helps to provide controller with a single view of data that is integrated from multiple backen sources.
+		 - best practice is to create a seperate service layer and seperate DAO layer.
+		 
+	 - @Service annotation:
+		 - Service annotation is used to specify a class which implements Service interface.
+		 - @Service annotation is used to automatically denote the class as a Service implementation for component scanning
