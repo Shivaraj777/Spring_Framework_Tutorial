@@ -392,5 +392,16 @@ Exception handler:
 		 - this acts as a global service and multiple controllers can make use of it
 		 - global exceptional handling
 		 
-	
-		 
+Spring REST API design:
+	 - 
+		
+for automatic reloading of application server:
+	 - use spring dev tools depedency from spring.start.io
+	 - to configure intellij IDE to use dev tools dependency	
+		 - go to settings
+			 - select Build, Execution, Deployment
+			 - Select Compiler
+			 - Click on build project automatically option
+			 - Click on Advanced settings
+			 - Select Allow auto make to start even if application is running.
+			 

@@ -1,0 +1,19 @@
+package com.codeslayer.springboot.cruddemo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class CruddemoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CruddemoApplication.class, args);
+	}
+
+}
+
+
+
+/* in this project we will be using standard JPA API to
+   make connection to database
+*  */
