@@ -30,7 +30,7 @@ public class EmployeeServiceImpl implements EmployeeService{
     // implement service method to connect to DAO fineById method
     @Override
     public Employee findById(int employeeId) {
-        return employeeDAO.findById(employeeId);
+        return employeeDAO.findById(employeeId);  // connect to DAO findById method
     }
 
 
