@@ -68,4 +68,23 @@ public class EmployeeRestController {
         Employee dbEmployee = employeeService.save(theEmployee);
         return dbEmployee;
     }
+
+
+    /* api to delete an employee from db
+       DELETE - /employees/{employeeId}
+     */
+    @DeleteMapping("/employees/{employeeId}")
+    public String deleteEmployee(@PathVariable int employeeId){
+        // find the employee
+        Employee tempEmployee = employeeService.findById(employeeId);
+
+        // check if employee exists in db
+        if(tempEmployee == null){
+            throw new RuntimeException("Employee id not found: " + employeeId);
+        }
+
+        // delete thr employee
+        employeeService.deleteById(employeeId);
+        return "Deleted employee with id: " + employeeId;
+    }
 }

@@ -413,4 +413,9 @@ Defining service layer using spring boot:
 	 - @Service annotation:
 		 - Service annotation is used to specify a class which implements Service interface.
 		 - @Service annotation is used to automatically denote the class as a Service implementation for component scanning
-		 
+	
+API method annotations in spring:
+	 - GET    -> GETmapping("")
+	 - POST   -> PostMapping("")
+	 - PUT    -> PutMapping("")
+	 - DELETE -> DeleteMapping("")
