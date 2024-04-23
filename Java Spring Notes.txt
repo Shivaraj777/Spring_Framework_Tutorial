@@ -419,3 +419,9 @@ API method annotations in spring:
 	 - POST   -> PostMapping("")
 	 - PUT    -> PutMapping("")
 	 - DELETE -> DeleteMapping("")
+	 
+Spring Data JPA:
+
+Spring data REST in Spring Boot:
+	 - provides basic crud implementation built-in functions.
+	 - makes use of JPA repository.
