@@ -5,10 +5,7 @@ import com.codeslayer.springboot.cruddemo.dao.EmployeeDAOJpaImpl;
 import com.codeslayer.springboot.cruddemo.entity.Employee;
 import com.codeslayer.springboot.cruddemo.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -45,5 +42,30 @@ public class EmployeeRestController {
         }
 
         return theEmployee;
+    }
+
+
+    /* api to add an employee to the db
+       POST - /api/employees/
+       @RequestBody annotation is used to assign the data from request body to api method parameter
+    */
+    @PostMapping("/employees")
+    public Employee addEmployee(@RequestBody Employee theEmployee){
+        // just in case they pass an id in json... set it to 0
+        // this is to force a save of new employee instead of update
+        theEmployee.setId(0);
+
+        Employee dbEmployee = employeeService.save(theEmployee);
+        return dbEmployee;
+    }
+
+
+    /* api to update an existing employee in db
+       PUT - /api/employees
+    */
+    @PutMapping("/employees")
+    public Employee updateEmployee(@RequestBody Employee theEmployee){
+        Employee dbEmployee = employeeService.save(theEmployee);
+        return dbEmployee;
     }
 }
