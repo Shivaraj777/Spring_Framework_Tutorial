@@ -434,4 +434,6 @@ Spring data REST in Spring Boot:
 			 - this annotation is used to change the entity name in api url
 
 Spring REST Security:
-	 - 
+	 - by adding spring boot security dependency, spring boot will automatically secure all the endpoints for the application
+	 - the default username is: user
+	 - the password is generated in the console after starting the application
