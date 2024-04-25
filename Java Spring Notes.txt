@@ -425,3 +425,13 @@ Spring Data JPA:
 Spring data REST in Spring Boot:
 	 - provides basic crud implementation built-in functions.
 	 - makes use of JPA repository.
+	 
+	 - customize api base url in Spring data rest:
+		 - go to application.properties
+			 - spring.data.rest.base-path = /spring-data-rest-api
+			 
+	 - @RepositoryRestResource(path="members")
+			 - this annotation is used to change the entity name in api url
+
+Spring REST Security:
+	 - 
