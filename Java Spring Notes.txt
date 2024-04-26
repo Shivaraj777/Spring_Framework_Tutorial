@@ -437,3 +437,6 @@ Spring REST Security:
 	 - by adding spring boot security dependency, spring boot will automatically secure all the endpoints for the application
 	 - the default username is: user
 	 - the password is generated in the console after starting the application
+	 
+	 - spring boot uses basic authentication by default
+	 - so while providing user details in postman go to -> Authorization -> Select Basic Auth
