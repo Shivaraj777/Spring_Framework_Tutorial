@@ -440,3 +440,13 @@ Spring REST Security:
 	 
 	 - spring boot uses basic authentication by default
 	 - so while providing user details in postman go to -> Authorization -> Select Basic Auth
+	 
+	 - to check the database schema relationship in MySQL workbench:
+		 - go to Database -> Select Reverse Engineer
+		 - select the required connection
+		 - click on next -> enter password
+		 - click on next -> select the directory(database)
+		 - click on next -> enter the password -> execute
+		 - Click on Next -> Finish
+		 
+	 - spring security checks the user details(authentication) from database for every api request
