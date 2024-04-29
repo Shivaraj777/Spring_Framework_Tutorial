@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<!-- xmlns:th="http://www.thymeleaf.org" -> to use thymeleaf expressions  -->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Hello World</title>
+    </head>
+    <body>
+        Hello World of Spring!
+
+        <br><br>
+
+        <!--    ${param.student-name} -> read entered form input data    -->
+        Student Name: <span th:text="${param.studentName}" />
+    </body>
+</html>
