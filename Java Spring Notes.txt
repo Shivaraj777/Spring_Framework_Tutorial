@@ -461,3 +461,10 @@ Spring REST Security:
 		 PDF: https://www.luv2code.com/bonus-lecture-spring-boot-rest-security-jpa-hibernate-bcrypt-pdf
 		 
 		 Source Code: https://www.luv2code.com/bonus-lecture-spring-boot-rest-security-jpa-hibernate-bcrypt-code
+		 
+		 
+Spring MVC:
+
+Thymeleaf:
+	 - Thymeleaf is a java templating engine.
+	 - we can create java apps with thymeleaf without using spring.
