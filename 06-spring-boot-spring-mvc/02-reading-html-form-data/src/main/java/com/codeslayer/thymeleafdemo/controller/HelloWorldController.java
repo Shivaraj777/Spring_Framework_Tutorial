@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -41,11 +42,11 @@ public class HelloWorldController {
 
 
     // controller method to read form data by using @RequestParam annotation and adding it to MVC model
-    @GetMapping("processFormVersion3")
+    @PostMapping("processFormVersion3")
     public String processFormV3(@RequestParam("studentName") String theName, Model theModel){
         // get form data from request and process it
         // String theName = request.getParameter("studentName");
-        theName.toUpperCase();
+        theName = theName.toUpperCase();
         String result = "Hey my friend, from v3 " + theName;
 
         // add the processed form data to spring MVC model
