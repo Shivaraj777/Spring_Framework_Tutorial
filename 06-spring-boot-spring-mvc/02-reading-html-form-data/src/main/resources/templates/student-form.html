@@ -28,6 +28,14 @@
 
         <br><br>
 
+        <!--   th:field="*{favouriteLanguage} -> bind favouriteLanguage property to student object   -->
+        Favourite Programming Language:
+        <input type="radio" th:field="*{favouriteLanguage}" th:value="Go">Go</input>
+        <input type="radio" th:field="*{favouriteLanguage}" th:value="Java">Java</input>
+        <input type="radio" th:field="*{favouriteLanguage}" th:value="Python">Python</input>
+
+        <br><br>
+
         <input type="submit" value="Submit" />
     </form>
 </body>
