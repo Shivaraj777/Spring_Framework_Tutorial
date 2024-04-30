@@ -19,12 +19,11 @@
 
         <br><br>
 
+        <!--   the selected option will be added to the country property of student object using setter method after submitting the form     -->
         Country:
         <select th:field="*{country}">
-            <option th:value="Brazil">Brazil</option>
-            <option th:value="France">France</option>
-            <option th:value="Germany">Germany</option>
-            <option th:value="India">India</option>
+            <!--    loop over countries list and display each country     -->
+            <option th:each="tempCountry : ${countries}" th:value="${tempCountry}" th:text="${tempCountry}" />
         </select>
 
         <br><br>

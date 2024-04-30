@@ -1,6 +1,7 @@
 package com.codeslayer.thymeleafdemo.controller;
 
 import com.codeslayer.thymeleafdemo.model.Student;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,9 +9,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/students")
 public class StudentController {
+
+    // private data member to store the list of countries to display on student-form
+    // @Value annotation is used to inject a property to the variable from properties file
+    @Value("${countries}")
+    private List<String> countries;
 
     // controller method to display form
     @GetMapping("/showStudentForm")
@@ -20,6 +28,9 @@ public class StudentController {
 
         // add the student object to the model(the MVC model attributes will be available in the html page)
         theModel.addAttribute("student", theStudent);
+
+        // add the list of countries to the MVC model
+        theModel.addAttribute("countries", countries);
 
         return "student-form";
     }
