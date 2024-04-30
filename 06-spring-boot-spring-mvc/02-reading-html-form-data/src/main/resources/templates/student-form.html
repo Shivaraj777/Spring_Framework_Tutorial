@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration form</title>
+</head>
+<body>
+    <h3>Student Registration Form</h3>
+
+    <!--  th:object="${student} -> name of the modal attribute,  th:field="*{firstName}" -> student object attribute(short form to access)  -->
+    <!--  when the form is loaded spring MVC will read the student data from the model using getter methods  -->
+    <!--  when the form is submitted, spring MVC will update the data in model using setter methods  -->
+    <form th:action="@{/students/processStudentForm}" th:object="${student}" method="post">
+        First Name: <input type="text" th:field="*{firstName}" />
+
+        <br><br>
+
+        Last Name: <input type="text" th:field="*{lastName}" />
+
+        <br><br>
+
+        <input type="submit" value="Submit" />
+    </form>
+</body>
+</html>
