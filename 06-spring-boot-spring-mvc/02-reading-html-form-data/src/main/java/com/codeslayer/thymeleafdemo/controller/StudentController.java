@@ -20,6 +20,9 @@ public class StudentController {
     @Value("${countries}")
     private List<String> countries;
 
+    @Value("${programmingLanguages}")
+    private List<String> programmingLanguages;
+
     // controller method to display form
     @GetMapping("/showStudentForm")
     public String showForm(Model theModel){
@@ -29,8 +32,9 @@ public class StudentController {
         // add the student object to the model(the MVC model attributes will be available in the html page)
         theModel.addAttribute("student", theStudent);
 
-        // add the list of countries to the MVC model
+        // add the list of countries, Programming languages to the MVC model
         theModel.addAttribute("countries", countries);
+        theModel.addAttribute("programmingLanguages", programmingLanguages);
 
         return "student-form";
     }
