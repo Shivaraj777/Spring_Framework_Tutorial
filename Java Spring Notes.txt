@@ -475,3 +475,13 @@ Spring MVC Front Controller:
 	 - it delegates the requests to other controllers created by users(developers).
 	 
 	 - spring MVC model allows us to share information between the controllers and view pages.
+	 
+Form validation:
+	 - StringTrimmerEditorClass:
+		 - it is defined in spring API
+		 - removes leading and trailing white spaces.
+		 - StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
+		 - if true parameter is initialized, then if string only contains spaces then trim the string to null.
+		 
+		 - dataBinder.registerCustomEditor(String.Class, stringTrimmerEditor);
+		 - for every String class, register the StringTrimmerEditor class feature

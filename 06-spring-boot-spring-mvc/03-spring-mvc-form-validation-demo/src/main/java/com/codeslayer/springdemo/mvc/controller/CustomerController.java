@@ -2,17 +2,26 @@ package com.codeslayer.springdemo.mvc.controller;
 
 import com.codeslayer.springdemo.mvc.model.Customer;
 import jakarta.validation.Valid;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/customers")
 public class CustomerController {
+
+    /*
+       method to remove leading/trailing white spaces from all strings
+       @InitBinder annotation is used to pre-process a method before initiating the controller method.
+    */
+    @InitBinder
+    public void initBinder(WebDataBinder dataBinder){
+        StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
+        dataBinder.registerCustomEditor(String.class, stringTrimmerEditor); // bind the String class data to use StringTrimmerEditor
+    }
 
     // controller method to display customer form
     @GetMapping("/showForm")
@@ -29,6 +38,9 @@ public class CustomerController {
     // theBindingResult objects contains the results of validation
     @PostMapping("/processCustomerForm")
     public String processCustomerForm(@Valid @ModelAttribute("customer") Customer theCustomer, BindingResult theBindingResult){
+        // check LastName
+        System.out.println("Last Name: |" + theCustomer.getLastName() + "|");
+
         if(theBindingResult.hasErrors()){
             return "customer-form";
         }
