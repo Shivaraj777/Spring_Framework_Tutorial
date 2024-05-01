@@ -40,7 +40,7 @@ public class StudentController {
     }
 
 
-    // controller method to process student form data and render the data
+    // controller method to process student form data and render the data...
     // @ModelAttribute annotation is used to bind the student data from form with theStudent object
     @PostMapping("/processStudentForm")
     public String processStudentForm(@ModelAttribute("student") Student theStudent){
