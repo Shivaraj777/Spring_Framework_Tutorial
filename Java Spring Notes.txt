@@ -473,3 +473,5 @@ Spring MVC Front Controller:
 	 - part of spring framework, developed by spring team
 	 - it is called as dispatcher servlet.
 	 - it delegates the requests to other controllers created by users(developers).
+	 
+	 - spring MVC model allows us to share information between the controllers and view pages.
