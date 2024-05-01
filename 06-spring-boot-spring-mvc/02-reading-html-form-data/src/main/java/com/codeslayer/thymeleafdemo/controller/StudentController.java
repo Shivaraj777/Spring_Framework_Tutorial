@@ -23,6 +23,9 @@ public class StudentController {
     @Value("${programmingLanguages}")
     private List<String> programmingLanguages;
 
+    @Value("${operatingSystems}")
+    private List<String> operatingSystems;
+
     // controller method to display form
     @GetMapping("/showStudentForm")
     public String showForm(Model theModel){
@@ -32,15 +35,16 @@ public class StudentController {
         // add the student object to the model(the MVC model attributes will be available in the html page)
         theModel.addAttribute("student", theStudent);
 
-        // add the list of countries, Programming languages to the MVC model
+        // add the list of countries, Programming languages, Operating Systems to the MVC model
         theModel.addAttribute("countries", countries);
         theModel.addAttribute("programmingLanguages", programmingLanguages);
+        theModel.addAttribute("operatingSystems", operatingSystems);
 
         return "student-form";
     }
 
 
-    // controller method to process student form data and render the data...
+    // controller method to process student form data and render the data
     // @ModelAttribute annotation is used to bind the student data from form with theStudent object
     @PostMapping("/processStudentForm")
     public String processStudentForm(@ModelAttribute("student") Student theStudent){
