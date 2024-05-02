@@ -23,6 +23,7 @@ public class CustomerController {
         dataBinder.registerCustomEditor(String.class, stringTrimmerEditor); // bind the String class data to use StringTrimmerEditor
     }
 
+
     // controller method to display customer form
     @GetMapping("/showForm")
     public String showCustomerForm(Model theModel){

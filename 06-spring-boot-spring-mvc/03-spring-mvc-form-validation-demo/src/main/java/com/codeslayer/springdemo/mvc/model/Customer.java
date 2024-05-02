@@ -1,9 +1,6 @@
 package com.codeslayer.springdemo.mvc.model;
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 public class Customer {
     private String firstName;
@@ -17,6 +14,10 @@ public class Customer {
     @Min(value = 0, message = "value must be greater than or equal to 0")
     @Max(value = 10, message = "value must be less than or equal to 10")
     private int freePasses;
+
+    // @Pattern annotation is used to create regular expressions - the value in attribute must match the exprssion
+    @Pattern(regexp = "^[a-zA-Z0-9]{6}", message = "only 6 chars/digits can be entered")
+    private String postalCode;
 
     public Customer() { }
 
@@ -42,5 +43,13 @@ public class Customer {
 
     public void setFreePasses(int freePasses) {
         this.freePasses = freePasses;
+    }
+
+    public String getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 }
