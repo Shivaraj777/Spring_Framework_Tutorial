@@ -42,6 +42,9 @@ public class CustomerController {
         // check LastName
         System.out.println("Last Name: |" + theCustomer.getLastName() + "|");
 
+        // check BindingResults object to find out the validation errors
+        System.out.println("Binding result object: " + theBindingResult);
+
         if(theBindingResult.hasErrors()){
             return "customer-form";
         }
