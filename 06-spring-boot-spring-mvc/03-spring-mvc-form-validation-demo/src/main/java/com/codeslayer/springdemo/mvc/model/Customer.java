@@ -11,9 +11,11 @@ public class Customer {
     private String lastName;
 
     // @Max and @Min annotations are used to set the min and max value for the attribute
+    // to make Integer fields required used Integer class instead of int data type to handle edge case of converting string to int
+    @NotNull(message = "is required")
     @Min(value = 0, message = "value must be greater than or equal to 0")
     @Max(value = 10, message = "value must be less than or equal to 10")
-    private int freePasses;
+    private Integer freePasses;
 
     // @Pattern annotation is used to create regular expressions - the value in attribute must match the exprssion
     @Pattern(regexp = "^[a-zA-Z0-9]{6}", message = "only 6 chars/digits can be entered")
@@ -37,11 +39,11 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public int getFreePasses() {
+    public Integer getFreePasses() {
         return freePasses;
     }
 
-    public void setFreePasses(int freePasses) {
+    public void setFreePasses(Integer freePasses) {
         this.freePasses = freePasses;
     }
 
