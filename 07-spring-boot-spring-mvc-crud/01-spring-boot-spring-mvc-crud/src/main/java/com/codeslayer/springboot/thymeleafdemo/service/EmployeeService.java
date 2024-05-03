@@ -1,6 +1,6 @@
-package com.codeslayer.springboot.cruddemo.service;
+package com.codeslayer.springboot.thymeleafdemo.service;
 
-import com.codeslayer.springboot.cruddemo.entity.Employee;
+import com.codeslayer.springboot.thymeleafdemo.entity.Employee;
 
 import java.util.List;
 

@@ -1,10 +1,9 @@
-package com.codeslayer.springboot.cruddemo.service;
+package com.codeslayer.springboot.thymeleafdemo.service;
 
-import com.codeslayer.springboot.cruddemo.dao.EmployeeRepository;
-import com.codeslayer.springboot.cruddemo.entity.Employee;
+import com.codeslayer.springboot.thymeleafdemo.dao.EmployeeRepository;
+import com.codeslayer.springboot.thymeleafdemo.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
