@@ -485,3 +485,6 @@ Form validation:
 		 
 		 - dataBinder.registerCustomEditor(String.Class, stringTrimmerEditor);
 		 - for every String class, register the StringTrimmerEditor class feature
+		 
+Custom validation using spring MVC:
+	 - we can create custom annotations in spring by giving any names

@@ -1,5 +1,6 @@
 package com.codeslayer.springdemo.mvc.model;
 
+import com.codeslayer.springdemo.mvc.validation.CourseCode;
 import jakarta.validation.constraints.*;
 
 public class Customer {
@@ -10,6 +11,7 @@ public class Customer {
     @Size(min = 1, message = "is required")  // min size of attribute value should be 1
     private String lastName;
 
+
     // @Max and @Min annotations are used to set the min and max value for the attribute
     // to make Integer fields required used Integer class instead of int data type to handle edge case of converting string to int
     @NotNull(message = "is required")
@@ -17,9 +19,16 @@ public class Customer {
     @Max(value = 10, message = "value must be less than or equal to 10")
     private Integer freePasses;
 
+
     // @Pattern annotation is used to create regular expressions - the value in attribute must match the exprssion
     @Pattern(regexp = "^[a-zA-Z0-9]{6}", message = "only 6 chars/digits can be entered")
     private String postalCode;
+
+
+    // @CourseCode -> custom annotation to check iif course code starts with specified string value
+    @CourseCode(value = "MOP", message="course code must start with MOP")
+    private String courseCode;
+
 
     public Customer() { }
 
@@ -53,5 +62,13 @@ public class Customer {
 
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
+    }
+
+    public String getCourseCode() {
+        return courseCode;
+    }
+
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
     }
 }
