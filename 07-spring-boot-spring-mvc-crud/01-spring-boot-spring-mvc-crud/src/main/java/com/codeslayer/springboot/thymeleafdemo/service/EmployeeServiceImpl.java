@@ -23,7 +23,7 @@ public class EmployeeServiceImpl implements EmployeeService{
     // implement service method to delegate to JPA repository
     @Override
     public List<Employee> findAll() {
-        return employeeRepository.findAll();
+        return employeeRepository.findAllByOrderByLastNameAsc();
     }
 
 
