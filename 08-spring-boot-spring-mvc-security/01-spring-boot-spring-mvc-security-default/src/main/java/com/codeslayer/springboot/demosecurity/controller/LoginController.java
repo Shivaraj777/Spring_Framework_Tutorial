@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/demo")
-public class DemoController {
+@RequestMapping("/auth")
+public class LoginController {
 
-    // controller method to display home page
-    @GetMapping("/")
-    public String showHome(){
-        return "home";
+    // controller method to display login page
+    @GetMapping("/showMyLoginPage")
+    public String showLoginPage(){
+        return "plain-login";
     }
 }

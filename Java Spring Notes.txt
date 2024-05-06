@@ -488,3 +488,9 @@ Form validation:
 		 
 Custom validation using spring MVC:
 	 - we can create custom annotations in spring by giving any names
+	 
+XML Namespace:
+	 - XML Namespace is a unique identifier for xml elements, attributes, etc..
+	 - In this case we use the xml namespace of thymeleaf(the "th" attribute)
+	 - xml namespaces do not connect to the internet...
+	 - it is just an unique identifier that is configured in the Thymeleaf jar file.
