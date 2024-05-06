@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Login page</title>
+    <style>
+        .failed{
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <h3>My Custom Login Page</h3>
@@ -10,6 +15,11 @@
 
     <!--  Spring security filters will read the form data with the help of default names(username, password) and authenticate the user  -->
     <form action="#" th:action="@{/auth/authenticateTheUser}" method="post">
+        <!-- Check for login error -->
+        <div th:if="${param.error}">
+            <i class="failed">Sorry! You entered an invalid username/password</i>
+        </div>
+        
         <p>
             Username: <input type="text" name="username" />
         </p>
