@@ -11,6 +11,7 @@ public class LoginController {
     // controller method to display login page
     @GetMapping("/showMyLoginPage")
     public String showLoginPage(){
-        return "plain-login";
+        // return "plain-login";
+        return "bootstrap-login";
     }
 }
