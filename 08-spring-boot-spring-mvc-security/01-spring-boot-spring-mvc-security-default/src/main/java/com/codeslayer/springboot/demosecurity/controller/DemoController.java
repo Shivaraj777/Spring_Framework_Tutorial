@@ -13,4 +13,18 @@ public class DemoController {
     public String showHome(){
         return "home";
     }
+
+
+    // controller method to display leaders page
+    @GetMapping("/leaders")
+    public String showLeaders(){
+        return "leaders";
+    }
+
+
+    // controller method to display systems page
+    @GetMapping("/systems")
+    public String showSystems(){
+        return "systems";
+    }
 }

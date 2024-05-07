@@ -42,6 +42,9 @@ public class DemoSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http.authorizeHttpRequests(configurer ->
                 configurer
+                        .requestMatchers("/demo/").hasRole("EMPLOYEE")  // restrict url access to only EMPLOYEES
+                        .requestMatchers("/demo/leaders/**").hasRole("MANAGER")  // restrict url access to only MANAGERS
+                        .requestMatchers("/demo/systems/**").hasRole("ADMIN")  // restrict url access to only ADMINS
                         .anyRequest().authenticated()
             )
             .formLogin(form ->    // customize the form login process
