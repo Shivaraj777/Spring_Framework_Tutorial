@@ -49,7 +49,8 @@ public class DemoSecurityConfig {
                         .loginPage("/auth/showMyLoginPage")  // login page url
                         .loginProcessingUrl("/auth/authenticateTheUser")   // url to process the login form(this is automatically handled by spring and controller method is not required)
                         .permitAll()   // allow all users to see login page
-            );
+            )
+            .logout(logout -> logout.permitAll());  // add logout support -> default url: /logout
 
         return http.build();
     }
