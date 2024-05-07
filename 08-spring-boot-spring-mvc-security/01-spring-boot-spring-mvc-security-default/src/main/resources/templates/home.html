@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Home page</title>
@@ -11,7 +11,15 @@
     Welcome to Code Slayer Company Home page!
     <hr>
 
-    <br><br>
+    <!--  Display username and role by using spring security xml namespace(feature) -->
+    <p>
+        User: <span sec:authentication="principal.username" />
+        <br><br>
+        Role(s): <span sec:authentication="principal.authorities" />
+    </p>
+    <hr>
+
+    <br>
 
     <!--  Logout form  -->
     <!--  Get method is disabled by default and hence post method is used  -->
