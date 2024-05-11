@@ -494,3 +494,5 @@ XML Namespace:
 	 - In this case we use the xml namespace of thymeleaf(the "th" attribute)
 	 - xml namespaces do not connect to the internet...
 	 - it is just an unique identifier that is configured in the Thymeleaf jar file.
+
+
