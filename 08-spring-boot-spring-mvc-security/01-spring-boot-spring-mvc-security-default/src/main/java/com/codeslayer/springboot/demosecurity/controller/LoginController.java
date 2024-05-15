@@ -14,4 +14,11 @@ public class LoginController {
         // return "plain-login";
         return "bootstrap-login";
     }
+
+
+    // controller method to display access denied page
+    @GetMapping("/access-denied")
+    public String showAccessDenied(){
+        return "access-denied";
+    }
 }

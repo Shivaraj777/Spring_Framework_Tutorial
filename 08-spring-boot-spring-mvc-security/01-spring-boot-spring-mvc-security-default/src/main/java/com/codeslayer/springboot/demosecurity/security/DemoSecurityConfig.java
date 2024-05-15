@@ -53,7 +53,10 @@ public class DemoSecurityConfig {
                         .loginProcessingUrl("/auth/authenticateTheUser")   // url to process the login form(this is automatically handled by spring and controller method is not required)
                         .permitAll()   // allow all users to see login page
             )
-            .logout(logout -> logout.permitAll());  // add logout support -> default url: /logout
+            .logout(logout -> logout.permitAll())   // add logout support -> default url: /logout
+            .exceptionHandling(configurer ->
+                    configurer.accessDeniedPage("/auth/access-denied")    // navigate to access denied page on exception
+            );
 
         return http.build();
     }
