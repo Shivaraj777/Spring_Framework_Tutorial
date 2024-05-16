@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+</head>
+<body>
+    <h2>Code Slayer Company Home page</h2>
+    <hr>
+
+    Welcome to Code Slayer Company Home page!
+    <hr>
+
+    <!--  Display username and role by using spring security xml namespace(feature) -->
+    <p>
+        User: <span sec:authentication="principal.username" />
+        <br><br>
+        Role(s): <span sec:authentication="principal.authorities" />
+    </p>
+    <hr>
+
+    <!--  link to point to /leaders, this is for the managers, users with other role won't be able to view this page...   -->
+    <div sec:authorize="hasRole('MANAGER')">
+        <p>
+            <a th:href="@{/demo/leaders}">Leadership Meeting</a>
+            (Only for Manager peeps)
+        </p>
+    </div>
+    <hr>
+
+    <!--  link to point to /systems, this is for the Admins...   -->
+    <div sec:authorize="hasRole('ADMIN')">
+        <p>
+            <a th:href="@{/demo/systems}">IT Systems Meeting</a>
+            (Only for Admin peeps)
+        </p>
+    </div>
+    <hr>
+
+    <br>
+
+    <!--  Logout form  -->
+    <!--  Get method is disabled by default and hence post method is used  -->
+    <form action="#" th:action="@{/logout}" method="post">
+        <input type="submit" value="Logout"/>
+    </form>
+</body>
+</html>
