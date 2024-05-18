@@ -3,8 +3,10 @@ package com.codeslayer.cruddemo.dao;
 import com.codeslayer.cruddemo.entity.Instructor;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+@Repository  // to include DAO for component scanning
 public class AppDAOImpl implements AppDAO{
 
     // define entity manager field to connect to database
