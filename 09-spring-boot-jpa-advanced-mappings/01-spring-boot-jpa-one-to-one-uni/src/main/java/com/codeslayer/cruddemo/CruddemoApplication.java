@@ -26,8 +26,21 @@ public class CruddemoApplication {
 		// lambda expression - shorthand expression for creating an implementation for command runner
 		return runner -> {
 			// System.out.println("Hello World!");
-			createInstructor(appDAO);
+			// createInstructor(appDAO);
+			findInstructor(appDAO);
 		};
+	}
+
+
+	// method to find instructor by id
+	private void findInstructor(AppDAO appDAO) {
+		// find the instructor
+		int instructorId = 1;
+		System.out.println("Finding the instructor with id: " + instructorId);
+		Instructor tempInstructor = appDAO.findInstructorById(instructorId);
+
+		System.out.println("Instructor: " + tempInstructor);
+		System.out.println("The associated instructor details: " + tempInstructor.getInstructorDetail());
 	}
 
 

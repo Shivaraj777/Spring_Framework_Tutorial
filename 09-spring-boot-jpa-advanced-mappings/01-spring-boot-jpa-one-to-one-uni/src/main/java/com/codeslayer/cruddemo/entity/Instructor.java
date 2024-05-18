@@ -26,7 +26,6 @@ public class Instructor {
         between instructor and instructor_detail table...
         CascadeType.ALL -> updates instructor_detail table for all operations performed on instructor table
         @JoinColumn -> to denote a foreign key in instructor which references to instructor_detail id
-
     */
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "instructor_detail_id")
