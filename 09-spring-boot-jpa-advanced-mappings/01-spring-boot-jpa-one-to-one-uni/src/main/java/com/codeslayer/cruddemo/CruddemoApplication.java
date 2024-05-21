@@ -33,7 +33,7 @@ public class CruddemoApplication {
 	}
 
 
-	// method tod delete instructor by id
+	// method to delete instructor by id by connecting to DAO
 	private void deleteInstructor(AppDAO appDAO) {
 		int instructorId = 1;
 		System.out.println("Deleting the instructor with id: " + instructorId);
@@ -42,7 +42,7 @@ public class CruddemoApplication {
 	}
 
 
-	// method to find instructor by id
+	// method to find instructor by id by connecting to DAO
 	private void findInstructor(AppDAO appDAO) {
 		// find the instructor
 		int instructorId = 1;
