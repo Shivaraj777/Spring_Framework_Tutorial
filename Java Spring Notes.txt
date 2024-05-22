@@ -531,5 +531,10 @@ PUBLIC LANDING PAGE
 		 - Source code: bonus-code-spring-boot-spring-mvc-security-landing-page.zip
 
 
+Spring JDBC advanced:
+	 - types of relationship mapping:
+			 - one-to-one
+			 - one-to-many
+			 - many-to-many
 
 	 
