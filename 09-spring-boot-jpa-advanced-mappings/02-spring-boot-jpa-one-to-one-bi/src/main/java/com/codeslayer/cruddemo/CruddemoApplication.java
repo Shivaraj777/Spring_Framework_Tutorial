@@ -29,8 +29,18 @@ public class CruddemoApplication {
 			// createInstructor(appDAO);
 			// findInstructor(appDAO);
 			// deleteInstructor(appDAO);
-			findInstructorDetail(appDAO);
+			// findInstructorDetail(appDAO);
+			deleteInstructorDetail(appDAO);
 		};
+	}
+
+
+	// method to delete instructor details by connecting to DAO
+	private void deleteInstructorDetail(AppDAO appDAO) {
+		int instructorDetailId = 3;
+		System.out.println("Deleting the instructor detail with id: " + instructorDetailId);
+		appDAO.deleteInstructorDetailById(instructorDetailId);
+		System.out.println("Done!!");
 	}
 
 	// method to find instructor detail by connecting to DAO

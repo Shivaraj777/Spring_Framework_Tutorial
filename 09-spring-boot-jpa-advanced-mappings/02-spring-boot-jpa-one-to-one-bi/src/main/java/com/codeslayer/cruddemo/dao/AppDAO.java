@@ -12,4 +12,6 @@ public interface AppDAO {
     void deleteInstructorById(int instructorId);  // method declaration to delete instructor by id
 
     InstructorDetail findInstructorDetailById(int instructorDetailId);  // method declaration to find instructorDetail by id
+
+    void deleteInstructorDetailById(int instructorDetailId);  // method declaration to delete instructor detail by id
 }
