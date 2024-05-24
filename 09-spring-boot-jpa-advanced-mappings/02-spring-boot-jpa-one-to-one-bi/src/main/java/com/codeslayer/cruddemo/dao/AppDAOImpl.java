@@ -1,6 +1,7 @@
 package com.codeslayer.cruddemo.dao;
 
 import com.codeslayer.cruddemo.entity.Instructor;
+import com.codeslayer.cruddemo.entity.InstructorDetail;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -28,7 +29,7 @@ public class AppDAOImpl implements AppDAO{
     }
 
 
-    // method to find the instructor and instructor details by id
+    // method to find the instructor by id
     @Override
     public Instructor findInstructorById(int instructorId) {
         // associated instructor details data is also retrieved, as the default behaviour of @OneToOne fetch type is eager
@@ -36,12 +37,19 @@ public class AppDAOImpl implements AppDAO{
     }
 
 
-    // method to delete instructor and instructor details by id
+    // method to delete instructor by id
     @Override
     @Transactional
     public void deleteInstructorById(int instructorId) {
         // retrieve the instructor and delete it(deletes both instructor and associated instructor details)
         Instructor tempInstructor = entityManager.find(Instructor.class, instructorId);
         entityManager.remove(tempInstructor);
+    }
+
+
+    // method to find instructor-detail by id
+    @Override
+    public InstructorDetail findInstructorDetailById(int instructorDetailId) {
+        return entityManager.find(InstructorDetail.class, instructorDetailId);
     }
 }

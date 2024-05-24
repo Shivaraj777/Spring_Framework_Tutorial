@@ -28,8 +28,21 @@ public class CruddemoApplication {
 			// System.out.println("Hello World!");
 			// createInstructor(appDAO);
 			// findInstructor(appDAO);
-			deleteInstructor(appDAO);
+			// deleteInstructor(appDAO);
+			findInstructorDetail(appDAO);
 		};
+	}
+
+	// method to find instructor detail by connecting to DAO
+	private void findInstructorDetail(AppDAO appDAO) {
+		// get the instructor detail object
+		int instructorDetailId = 2;
+		System.out.println("Finding instructor detail with id: " + instructorDetailId);
+		InstructorDetail tempInstructorDetail = appDAO.findInstructorDetailById(instructorDetailId);
+
+		// print instructor detail and associate instructor
+		System.out.println("Instructor Detail: " + tempInstructorDetail);
+		System.out.println("Associated Instructor: " + tempInstructorDetail.getInstructor());
 	}
 
 
@@ -57,7 +70,7 @@ public class CruddemoApplication {
 	// method to create instructor by connecting to DAO
 	private void createInstructor(AppDAO appDAO) {
 		// create the instructor
-		Instructor tempInstructor = new Instructor("Chad", "Darby", "darby@gmail.com");
+		Instructor tempInstructor = new Instructor("Rock", "Dickson", "dickson@gmail.com");
 
 		// create instructor detail
 		InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.luv2code.com/youtube", "Luv 2 code!!");
