@@ -1,6 +1,7 @@
 package com.codeslayer.cruddemo;
 
 import com.codeslayer.cruddemo.dao.AppDAO;
+import com.codeslayer.cruddemo.entity.Course;
 import com.codeslayer.cruddemo.entity.Instructor;
 import com.codeslayer.cruddemo.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
@@ -30,8 +31,35 @@ public class CruddemoApplication {
 			// findInstructor(appDAO);
 			// deleteInstructor(appDAO);
 			// findInstructorDetail(appDAO);
-			deleteInstructorDetail(appDAO);
+			// deleteInstructorDetail(appDAO);
+			createInstructorWithCourses(appDAO);
 		};
+	}
+
+
+	private void createInstructorWithCourses(AppDAO appDAO) {
+		// create the instructor
+		Instructor tempInstructor = new Instructor("Rock", "Dickson", "dickson@gmail.com");
+
+		// create instructor detail
+		InstructorDetail tempInstructorDetail = new InstructorDetail("http://www.luv2code.com/youtube", "Luv 2 code!!");
+
+		// associate the objects
+		tempInstructor.setInstructorDetail(tempInstructorDetail);
+
+		// create some course
+		Course tempCourse1 = new Course("Air Guitar - The Ultimate Guide");
+		Course tempCourse2 = new Course("The Pinball - Masterclass");
+
+		// add the courses to the instructor
+		tempInstructor.addCourse(tempCourse1);
+		tempInstructor.addCourse(tempCourse2);
+
+		// save the instructor
+		System.out.println("Saving Instructor: " + tempInstructor);
+		System.out.println("The Course: " + tempInstructor.getCourses());
+		appDAO.save(tempInstructor);
+		System.out.println("Done!");
 	}
 
 
@@ -42,6 +70,7 @@ public class CruddemoApplication {
 		appDAO.deleteInstructorDetailById(instructorDetailId);
 		System.out.println("Done!!");
 	}
+
 
 	// method to find instructor detail by connecting to DAO
 	private void findInstructorDetail(AppDAO appDAO) {
