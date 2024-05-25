@@ -36,7 +36,8 @@ public class Instructor {
 
     // @OneToMany annotation -> create a one-to-many relationship between instructor and course entity
     // mappedBy property will check the instructor object in Course entity and find all courses mapped to current instructor
-    @OneToMany(mappedBy = "instructor", cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH})
+    // fetch property is used to override the default fetch type -> default fetch type for @OneToMany is LAZY
+    @OneToMany(mappedBy = "instructor", fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.PERSIST, CascadeType.REFRESH})
     private List<Course> courses;
 
     public Instructor() { }

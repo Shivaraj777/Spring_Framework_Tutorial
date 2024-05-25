@@ -32,11 +32,28 @@ public class CruddemoApplication {
 			// deleteInstructor(appDAO);
 			// findInstructorDetail(appDAO);
 			// deleteInstructorDetail(appDAO);
-			createInstructorWithCourses(appDAO);
+			// createInstructorWithCourses(appDAO);
+			findInstructorWithCourses(appDAO);
 		};
 	}
 
 
+	// method to find instructor and associated course
+	// eager vs lazy load example overview -> we get error when we try to access courses as default fetch type is LAZY for @OneToMany mapping
+	private void findInstructorWithCourses(AppDAO appDAO) {
+		// find the Instructor
+		int instructorId = 1;
+		System.out.println("Finding instructor id: " + instructorId);
+		Instructor tempInstructor = appDAO.findInstructorById(instructorId);
+
+		// print instructor and associated courses
+		System.out.println("Instructor: " + tempInstructor);
+		System.out.println("The associated courses " + tempInstructor.getCourses());
+		System.out.println("Done!");
+	}
+
+
+	// method to created instructor and associated courses
 	private void createInstructorWithCourses(AppDAO appDAO) {
 		// create the instructor
 		Instructor tempInstructor = new Instructor("Rock", "Dickson", "dickson@gmail.com");
