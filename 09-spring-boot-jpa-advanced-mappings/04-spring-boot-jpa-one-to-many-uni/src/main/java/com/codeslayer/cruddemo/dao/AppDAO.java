@@ -31,4 +31,6 @@ public interface AppDAO {
     void deleteCourseById(int courseId);  // method declaration to delete course based on id
 
     void save(Course theCourse);  // method declaration to create a course
+
+    Course findCourseAndReviewsByCourseId(int courseId);  // method declaration to find a course and associated reviews based on id
 }

@@ -143,6 +143,21 @@ public class AppDAOImpl implements AppDAO{
     }
 
 
+    // method to find a course and associated reviews based on id
+    @Override
+    public Course findCourseAndReviewsByCourseId(int courseId) {
+        // create the query
+        TypedQuery<Course> query = entityManager.createQuery("select c from Course c " +
+                                                            "JOIN FETCH c.reviews " +
+                                                            "where c.id = :data", Course.class);
+        query.setParameter("data", courseId);
+
+        // execute the query
+        Course tempCourse = query.getSingleResult();
+        return tempCourse;
+    }
+
+
     // method to update a course
     @Override
     @Transactional
