@@ -31,7 +31,7 @@ public class CruddemoApplication {
 			// System.out.println("Hello World!");
 			// createInstructor(appDAO);
 			// findInstructor(appDAO);
-			// deleteInstructor(appDAO);
+			 deleteInstructor(appDAO);
 			// findInstructorDetail(appDAO);
 			// deleteInstructorDetail(appDAO);
 			// createInstructorWithCourses(appDAO);
@@ -39,7 +39,7 @@ public class CruddemoApplication {
 			// findCoursesForInstructor(appDAO);
 			// findInstructorWithCoursesJoinFetch(appDAO);
 			// updateInstructor(appDAO);
-			updateCourse(appDAO);
+			// updateCourse(appDAO);
 		};
 	}
 
