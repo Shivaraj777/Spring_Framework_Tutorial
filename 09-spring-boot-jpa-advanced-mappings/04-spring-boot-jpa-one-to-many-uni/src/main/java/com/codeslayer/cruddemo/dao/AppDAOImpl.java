@@ -134,6 +134,14 @@ public class AppDAOImpl implements AppDAO{
     }
 
 
+    // method to create a course
+    @Override
+    @Transactional
+    public void save(Course theCourse) {
+        entityManager.persist(theCourse);
+    }
+
+
     @Override
     @Transactional
     public void update(Course theCourse) {

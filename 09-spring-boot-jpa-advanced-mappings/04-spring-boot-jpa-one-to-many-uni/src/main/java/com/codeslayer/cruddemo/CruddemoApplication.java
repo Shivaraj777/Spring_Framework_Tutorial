@@ -4,6 +4,7 @@ import com.codeslayer.cruddemo.dao.AppDAO;
 import com.codeslayer.cruddemo.entity.Course;
 import com.codeslayer.cruddemo.entity.Instructor;
 import com.codeslayer.cruddemo.entity.InstructorDetail;
+import com.codeslayer.cruddemo.entity.Review;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -40,8 +41,30 @@ public class CruddemoApplication {
 			// findInstructorWithCoursesJoinFetch(appDAO);
 			// updateInstructor(appDAO);
 			// updateCourse(appDAO);
-			deleteCourse(appDAO);
+			// deleteCourse(appDAO);
+			createCourseAndReviews(appDAO);
 		};
+	}
+
+
+	// method to create a course and its associated reviews by connecting to DAO
+	private void createCourseAndReviews(AppDAO appDAO) {
+		// create the course
+		System.out.println("Creating a new course...");
+		Course tempCourse = new Course("Pacman - How to score one million points.");
+
+		// create reviews and add it to the course
+		System.out.println("Adding reviews to the course...");
+		tempCourse.addReview(new Review("Yo man.. great course!"));
+		tempCourse.addReview(new Review("Easy to comprehend, thank you!"));
+		tempCourse.addReview(new Review("The worst course I can find on the internet!"));
+
+		// Save the course and associated reviews
+		System.out.println("Saving the course...");
+		System.out.println("Course: " + tempCourse);
+		System.out.println("Reviews: " + tempCourse.getReviews());
+		appDAO.save(tempCourse);
+		System.out.println("Done!");
 	}
 
 
