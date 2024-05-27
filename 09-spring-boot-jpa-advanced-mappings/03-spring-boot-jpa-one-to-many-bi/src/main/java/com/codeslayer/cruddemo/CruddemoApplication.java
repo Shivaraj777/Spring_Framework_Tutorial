@@ -9,6 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 public class CruddemoApplication {
 
@@ -33,8 +35,26 @@ public class CruddemoApplication {
 			// findInstructorDetail(appDAO);
 			// deleteInstructorDetail(appDAO);
 			// createInstructorWithCourses(appDAO);
-			findInstructorWithCourses(appDAO);
+			// findInstructorWithCourses(appDAO);
+			findCoursesForInstructor(appDAO);
 		};
+	}
+
+
+	// method to find the list of associated courses for an instructor bu connecting to DAO
+	private void findCoursesForInstructor(AppDAO appDAO) {
+		// find the instructor
+		int instructorId = 1;
+		System.out.println("Finding the instructor with id: " + instructorId);
+		Instructor tempInstructor = appDAO.findInstructorById(instructorId);
+		System.out.println("Instructor: " + tempInstructor);  // only instructor details will be loaded as fetch type is LAZY
+
+		// find the associated courses for instructor and add it to instructor
+		System.out.println("Finding courses for instructor id: " + instructorId);
+		List<Course> tempCourses = appDAO.findCoursesByInstructorId(instructorId);
+		tempInstructor.setCourses(tempCourses);
+		System.out.println("The associated courses for Instructor: " + tempInstructor.getCourses());
+		System.out.println("Done");
 	}
 
 

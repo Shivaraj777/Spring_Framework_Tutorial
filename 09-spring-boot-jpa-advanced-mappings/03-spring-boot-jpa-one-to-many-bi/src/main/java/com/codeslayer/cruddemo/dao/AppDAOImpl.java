@@ -1,11 +1,15 @@
 package com.codeslayer.cruddemo.dao;
 
+import com.codeslayer.cruddemo.entity.Course;
 import com.codeslayer.cruddemo.entity.Instructor;
 import com.codeslayer.cruddemo.entity.InstructorDetail;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Repository  // to include DAO for component scanning
 public class AppDAOImpl implements AppDAO{
@@ -61,5 +65,18 @@ public class AppDAOImpl implements AppDAO{
         // retrieve the instructorDetail and delete it(deletes both instructor details and associated instructor)
         InstructorDetail tempInstructorDetail = entityManager.find(InstructorDetail.class, instructorDetailId);
         entityManager.remove(tempInstructorDetail);
+    }
+
+
+    // method to find the list of associated courses for an instructor
+    @Override
+    public List<Course> findCoursesByInstructorId(int instructorId) {
+        // create the query and set the parameter
+        TypedQuery<Course> query = entityManager.createQuery("from Course where instructor.id = :data", Course.class);
+        query.setParameter("data", instructorId);
+
+        // execute the query
+        List<Course> tempCourse = query.getResultList();
+        return tempCourse;
     }
 }
