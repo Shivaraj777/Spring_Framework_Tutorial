@@ -19,4 +19,6 @@ public interface AppDAO {
     void deleteInstructorDetailById(int instructorDetailId);  // method declaration to delete instructor detail by id
 
     List<Course> findCoursesByInstructorId(int instructorId);  // method to find the associated courses for an instructor id
+
+    Instructor findInstructorByIdJoinFetch(int instructorId);  // method declaration to find instructor and associated courses
 }

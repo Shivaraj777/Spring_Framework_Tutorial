@@ -79,4 +79,23 @@ public class AppDAOImpl implements AppDAO{
         List<Course> tempCourse = query.getResultList();
         return tempCourse;
     }
+
+
+    // method to find instructor and its associated courses(using JOIN FETCH)
+    // JOIN FETCH loads the data in an EAGER fashion even if Fetch Type of entity is LAZY
+    // the below code will return Instructor and associated courses embedded
+    @Override
+    public Instructor findInstructorByIdJoinFetch(int instructorId) {
+        // create the query to find instructor with JOIN FETCH
+        TypedQuery<Instructor> query = entityManager.createQuery("select i from Instructor i " +
+                                                                "JOIN FETCH i.courses " +
+                                                                "JOIN FETCH i.instructorDetail " +
+                                                                "where i.id = :data", Instructor.class);
+
+        query.setParameter("data", instructorId);
+
+        // execute the query and return the result
+        Instructor tempInstructor = query.getSingleResult();
+        return tempInstructor;
+    }
 }
