@@ -27,4 +27,6 @@ public interface AppDAO {
     void update(Course theCourse);  // method declaration to update a course
 
     Course findCourseById(int courseId);  // method declaration to find course based on id
+
+    void deleteCourseById(int courseId);  // method declaration to delete course based on id
 }

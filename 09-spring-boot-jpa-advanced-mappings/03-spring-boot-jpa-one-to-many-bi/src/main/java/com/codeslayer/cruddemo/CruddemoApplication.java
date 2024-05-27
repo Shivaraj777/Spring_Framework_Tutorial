@@ -31,7 +31,7 @@ public class CruddemoApplication {
 			// System.out.println("Hello World!");
 			// createInstructor(appDAO);
 			// findInstructor(appDAO);
-			 deleteInstructor(appDAO);
+			// deleteInstructor(appDAO);
 			// findInstructorDetail(appDAO);
 			// deleteInstructorDetail(appDAO);
 			// createInstructorWithCourses(appDAO);
@@ -40,9 +40,21 @@ public class CruddemoApplication {
 			// findInstructorWithCoursesJoinFetch(appDAO);
 			// updateInstructor(appDAO);
 			// updateCourse(appDAO);
+			deleteCourse(appDAO);
 		};
 	}
 
+
+	// method to delete a Course by connecting to DAO
+	private void deleteCourse(AppDAO appDAO) {
+		int courseId = 11;
+		System.out.println("Deleting course with id: " + courseId);
+		appDAO.deleteCourseById(courseId);
+		System.out.println("Done");
+	}
+
+
+	// method to update Course by connecting to DAO
 	private void updateCourse(AppDAO appDAO) {
 		// find the course
 		int courseId = 10;
