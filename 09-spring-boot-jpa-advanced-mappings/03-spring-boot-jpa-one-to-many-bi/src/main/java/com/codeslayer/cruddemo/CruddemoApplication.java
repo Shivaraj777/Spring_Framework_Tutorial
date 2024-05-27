@@ -38,8 +38,22 @@ public class CruddemoApplication {
 			// findInstructorWithCourses(appDAO);
 			// findCoursesForInstructor(appDAO);
 			// findInstructorWithCoursesJoinFetch(appDAO);
-			updateInstructor(appDAO);
+			// updateInstructor(appDAO);
+			updateCourse(appDAO);
 		};
+	}
+
+	private void updateCourse(AppDAO appDAO) {
+		// find the course
+		int courseId = 10;
+		System.out.println("Finding the course with id: " + courseId);
+		Course tempCourse = appDAO.findCourseById(courseId);
+
+		// update the instructor
+		System.out.println("Updating the course with id: " + courseId);
+		tempCourse.setTitle("Finding Inner Peace - Master Class");
+		appDAO.update(tempCourse);
+		System.out.println("Done");
 	}
 
 
