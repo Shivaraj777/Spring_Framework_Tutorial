@@ -118,6 +118,7 @@ public class AppDAOImpl implements AppDAO{
     }
 
 
+    // method to find a course base on id
     @Override
     public Course findCourseById(int courseId) {
         return entityManager.find(Course.class, courseId);
@@ -142,6 +143,7 @@ public class AppDAOImpl implements AppDAO{
     }
 
 
+    // method to update a course
     @Override
     @Transactional
     public void update(Course theCourse) {
