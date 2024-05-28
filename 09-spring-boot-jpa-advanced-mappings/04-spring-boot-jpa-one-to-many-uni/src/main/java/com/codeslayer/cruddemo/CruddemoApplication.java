@@ -43,8 +43,18 @@ public class CruddemoApplication {
 			// updateCourse(appDAO);
 			// deleteCourse(appDAO);
 			// createCourseAndReviews(appDAO);
-			retrieveCourseAndReviews(appDAO);
+			// retrieveCourseAndReviews(appDAO);
+			deleteCourseAndReviews(appDAO);
 		};
+	}
+
+
+	// method to delete course and associated reviews by connecting to DAO
+	private void deleteCourseAndReviews(AppDAO appDAO) {
+		int courseId = 10;
+		System.out.println("Deleting course with id: " + courseId);
+		appDAO.deleteCourseById(courseId);  // this will delete the course and associated reviews as Cascade type is ALL
+		System.out.println("Done!");
 	}
 
 
