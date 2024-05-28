@@ -165,4 +165,19 @@ public class AppDAOImpl implements AppDAO{
         entityManager.merge(theCourse);
     }
 
+
+    // method to find course and its associated students based on course id
+    @Override
+    public Course findCourseAndStudentsByCourseId(int courseId) {
+        // create the query
+        TypedQuery<Course> query = entityManager.createQuery("select c from Course c " +
+                                                            "JOIN FETCH c.students " +
+                                                            "where c.id = :data", Course.class);
+        query.setParameter("data", courseId);
+
+        // execute the query
+        Course tempCourse = query.getSingleResult();
+        return tempCourse;
+    }
+
 }

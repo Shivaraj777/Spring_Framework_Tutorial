@@ -33,4 +33,6 @@ public interface AppDAO {
     void save(Course theCourse);  // method declaration to create a course
 
     Course findCourseAndReviewsByCourseId(int courseId);  // method declaration to find a course and associated reviews based on id
+
+    Course findCourseAndStudentsByCourseId(int courseId);  // method declaration to find course and associated students based on course id
 }
