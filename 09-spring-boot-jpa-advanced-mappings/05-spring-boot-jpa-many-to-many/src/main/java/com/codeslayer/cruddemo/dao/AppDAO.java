@@ -38,4 +38,6 @@ public interface AppDAO {
     Course findCourseAndStudentsByCourseId(int courseId);  // method declaration to find course and associated students based on course id
 
     Student findStudentAndCoursesByStudentId(int studentId);  // method declaration to find student and associated courses
+
+    void update(Student theStudent);  // method to declaration to update a student
 }
