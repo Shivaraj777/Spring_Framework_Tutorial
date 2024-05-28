@@ -1,10 +1,7 @@
 package com.codeslayer.cruddemo;
 
 import com.codeslayer.cruddemo.dao.AppDAO;
-import com.codeslayer.cruddemo.entity.Course;
-import com.codeslayer.cruddemo.entity.Instructor;
-import com.codeslayer.cruddemo.entity.InstructorDetail;
-import com.codeslayer.cruddemo.entity.Review;
+import com.codeslayer.cruddemo.entity.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -44,8 +41,30 @@ public class CruddemoApplication {
 			// deleteCourse(appDAO);
 			// createCourseAndReviews(appDAO);
 			// retrieveCourseAndReviews(appDAO);
-			deleteCourseAndReviews(appDAO);
+			// deleteCourseAndReviews(appDAO);
+			createCourseAndStudents(appDAO);
 		};
+	}
+
+
+	// method to create course and associated students by connecting to DAO
+	private void createCourseAndStudents(AppDAO appDAO) {
+		// create the course and students
+		System.out.println("Creating the course and associated students...");
+		Course tempCourse = new Course("Pacman - how to score one million points");
+		Student tempStudent1 = new Student("Ram", "Singh", "ram@gmail.com");
+		Student tempStudent2 = new Student("Rinku", "Sharma", "rinku@gmail.com");
+
+		// add the students to course
+		System.out.println("Adding the students to course...");
+		tempCourse.addStudent(tempStudent1);
+		tempCourse.addStudent(tempStudent2);
+
+		// save the course and associated students
+		System.out.println("Saving the course: " + tempCourse);
+		System.out.println("Saving the the students: " + tempCourse.getStudents());
+		appDAO.save(tempCourse);
+		System.out.println("Done");
 	}
 
 
