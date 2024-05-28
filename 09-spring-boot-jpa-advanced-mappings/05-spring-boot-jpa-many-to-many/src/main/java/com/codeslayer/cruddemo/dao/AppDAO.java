@@ -3,6 +3,7 @@ package com.codeslayer.cruddemo.dao;
 import com.codeslayer.cruddemo.entity.Course;
 import com.codeslayer.cruddemo.entity.Instructor;
 import com.codeslayer.cruddemo.entity.InstructorDetail;
+import com.codeslayer.cruddemo.entity.Student;
 
 import java.util.List;
 
@@ -35,4 +36,6 @@ public interface AppDAO {
     Course findCourseAndReviewsByCourseId(int courseId);  // method declaration to find a course and associated reviews based on id
 
     Course findCourseAndStudentsByCourseId(int courseId);  // method declaration to find course and associated students based on course id
+
+    Student findStudentAndCoursesByStudentId(int studentId);  // method declaration to find student and associated courses
 }
