@@ -45,8 +45,21 @@ public class CruddemoApplication {
 			// createCourseAndStudents(appDAO);
 			// findCourseAndStudents(appDAO);
 			// findStudentAndCourses(appDAO);
-			addMoreCoursesForStudent(appDAO);
+			// addMoreCoursesForStudent(appDAO);
+			deleteStudent(appDAO);
 		};
+	}
+
+
+	// method to delete a student by connecting to DAO
+	private void deleteStudent(AppDAO appDAO) {
+		int studentId = 2;
+		System.out.println("Deleting student with id: " + studentId);
+
+		// spring hibernate automatically removes the relationship between the deleted student and associated courses
+		// (Note: relationship is present in course_student_table)
+		appDAO.deleteStudentById(studentId);
+		System.out.println("Done");
 	}
 
 
@@ -166,6 +179,9 @@ public class CruddemoApplication {
 	private void deleteCourse(AppDAO appDAO) {
 		int courseId = 11;
 		System.out.println("Deleting course with id: " + courseId);
+
+		//spring hibernate automatically removes the relationship between the deleted course and associated students
+		// (Note: relationship is present in course_student_table)
 		appDAO.deleteCourseById(courseId);
 		System.out.println("Done");
 	}
