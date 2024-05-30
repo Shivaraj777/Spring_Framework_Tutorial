@@ -19,9 +19,10 @@ public class MyDemoLoggingAspect {
         pointcut expression -> a predicate expression which describes where advice should be applied
         @Before advice -> to run the method before the target object method -> public void addAccount()
         "execution(public void addAccount())" -> match all addAccount() irrespective of class
+        "execution(public void com.codeslayer.aopdemo.dao.AccountDAO.addAccount())" -> match addAccount() for the specified fully qualified class/interface
      */
     // @Before("execution(public void addAccount())")
-    @Before("execution(public void addAccount())")
+    @Before("execution(public void com.codeslayer.aopdemo.dao.AccountDAO.addAccount())")
     public void beforeAddAccountAdvice(){
         System.out.println("\n========> Executing @Before Advice on addAccount()");
     }
