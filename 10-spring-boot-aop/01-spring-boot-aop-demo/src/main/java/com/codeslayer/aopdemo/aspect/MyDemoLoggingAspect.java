@@ -2,6 +2,7 @@ package com.codeslayer.aopdemo.aspect;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 /*
@@ -13,6 +14,14 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class MyDemoLoggingAspect {
+
+    /*
+        create a pointcut declaration
+        we can re-use this pointcut declaration multiple times on any advices
+     */
+    @Pointcut("execution(* com.codeslayer.aopdemo.dao.*.*(..))")
+    private void forDaoPackage() {};
+
 
     /*
         "execution(public void addAccount())" -> pointcut expression
@@ -40,7 +49,8 @@ public class MyDemoLoggingAspect {
     // @Before("execution(* add*(com.codeslayer.aopdemo.entity.Account))")
     // @Before("execution(* add*(com.codeslayer.aopdemo.entity.Account, ..))")
     // @Before("execution(* add*(..))")
-    @Before("execution(* com.codeslayer.aopdemo.dao.*.*(..))")
+    // @Before("execution(* com.codeslayer.aopdemo.dao.*.*(..))")
+    @Before("forDaoPackage()")    // apply the pointcut declaration to advice
     public void beforeAddAccountAdvice(){
         System.out.println("\n========> Executing @Before Advice on method");
     }
