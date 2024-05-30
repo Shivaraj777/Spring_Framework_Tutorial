@@ -15,4 +15,11 @@ public class MembershipDAOImpl implements MembershipDAO{
     public void addMember() {
         System.out.println(getClass() + ": DOING MY DB WORK: ADDING A SILLY MEMBER");
     }
+
+
+    @Override
+    public boolean addMemberDetails() {
+        System.out.println(getClass() + ": DOING MY DB WORK: ADDING A SILLY MEMBER DETAILS");
+        return false;
+    }
 }

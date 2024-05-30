@@ -5,4 +5,6 @@ public interface MembershipDAO {
     void addAccount();
 
     void addMember();
+
+    boolean addMemberDetails();
 }

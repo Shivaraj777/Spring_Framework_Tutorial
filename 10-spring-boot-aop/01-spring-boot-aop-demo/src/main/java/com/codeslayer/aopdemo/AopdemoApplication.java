@@ -36,6 +36,7 @@ public class AopdemoApplication {
 		theAccountDAO.addAccount();
 		theMembershipDAO.addAccount();
 		theMembershipDAO.addMember();
+		theMembershipDAO.addMemberDetails();
 	}
 
 }
