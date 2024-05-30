@@ -536,5 +536,33 @@ Spring JDBC advanced:
 			 - one-to-one
 			 - one-to-many
 			 - many-to-many
+			 
+			 
+spring Boot Aspect orient programming:
+
+Pointcut expressions and using wildcards in method paramets:
+
+If you are using IntelliJ Ultimate You may encounter this error:
+	 Exception encountered during context initialization - cancelling
+	 refresh attempt:
+		 org.springframework.beans.factory.BeanCreationException: Error
+		 creating bean with name 'mbeanExporter' defined in class path
+		 resource [org/springframework/boot/autoconfigure/jmx/JmxAutoConfiguration.class]
+
+	 Why?:
+		 IntelliJ Ultimate loads additional classes for JMX
+		 This conflicts with Spring Boot's JMX Autoconfiguration
+
+	 When using wildcards with AOP, caution should be taken.
+		 If new frameworks are added to your project, then you may encounter conflicts.
+		 Recommendation is to:
+			 - narrow your pointcut expressions
+			 - limit them to your project package
+
+	In this case, our pointcut expression is too broad. We can resolve this by:
+		 - narrowing the pointcut expression
+		 - only match within our project package
+			 @Before("execution (* com.luv2code. .add* (..))")
+			 Narrow pointcut expression to our package
 
 	 

@@ -31,12 +31,14 @@ public class MyDemoLoggingAspect {
         "execution(* add*(com.codeslayer.aopdemo.entity.Account))"  -> match methods with as single Account object as parameter
         "execution(* add*(com.codeslayer.aopdemo.entity.Account, ..))"  ->  match methods with Account object param and any no. of arguments
         ..  ---> specifies we can pass any no. of arguments to the function
+        "execution(* add*(..))"  ->  match methods with zero or any parameters
      */
     // @Before("execution(public void addAccount())")
     // @Before("execution(public void com.codeslayer.aopdemo.dao.AccountDAO.addAccount())")
     // @Before("execution(public void add*())")
     // @Before("execution(* add*(com.codeslayer.aopdemo.entity.Account))")
-    @Before("execution(* add*(com.codeslayer.aopdemo.entity.Account, ..))")
+    // @Before("execution(* add*(com.codeslayer.aopdemo.entity.Account, ..))")
+    @Before("execution(* add*(..))")
     public void beforeAddAccountAdvice(){
         System.out.println("\n========> Executing @Before Advice on method");
     }
