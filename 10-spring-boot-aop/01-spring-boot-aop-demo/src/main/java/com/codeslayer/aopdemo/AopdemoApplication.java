@@ -1,6 +1,7 @@
 package com.codeslayer.aopdemo;
 
 import com.codeslayer.aopdemo.dao.AccountDAO;
+import com.codeslayer.aopdemo.dao.MembershipDAO;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,19 +21,20 @@ public class AopdemoApplication {
 		AccountDAO is injected automatically -> because the method is annotated with @Bean
 	*/
 	@Bean
-	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO){
+	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO){
 		// lambda expression - shorthand expression for creating an implementation for command runner
 		return runner -> {
 			// System.out.println("Hello");
-			demoTheBeforeAdvice(theAccountDAO);
+			demoTheBeforeAdvice(theAccountDAO, theMembershipDAO);
 		};
 	}
 
 
 	// method to display demo for @Before Advice annotation in AOP
-	private void demoTheBeforeAdvice(AccountDAO theAccountDAO) {
+	private void demoTheBeforeAdvice(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO) {
 		// call the business method/target object method
 		theAccountDAO.addAccount();
+		theMembershipDAO.addAccount();
 	}
 
 }

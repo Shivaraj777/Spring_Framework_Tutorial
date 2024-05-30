@@ -15,10 +15,12 @@ import org.springframework.stereotype.Component;
 public class MyDemoLoggingAspect {
 
     /*
-        "execution(public void addAccount())") -> pointcut expression
+        "execution(public void addAccount())" -> pointcut expression
         pointcut expression -> a predicate expression which describes where advice should be applied
         @Before advice -> to run the method before the target object method -> public void addAccount()
+        "execution(public void addAccount())" -> match all addAccount() irrespective of class
      */
+    // @Before("execution(public void addAccount())")
     @Before("execution(public void addAccount())")
     public void beforeAddAccountAdvice(){
         System.out.println("\n========> Executing @Before Advice on addAccount()");
