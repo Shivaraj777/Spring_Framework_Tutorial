@@ -54,4 +54,10 @@ public class MyDemoLoggingAspect {
     public void beforeAddAccountAdvice(){
         System.out.println("\n========> Executing @Before Advice on method");
     }
+
+
+    @Before("forDaoPackage()")    // apply the pointcut declaration to advice
+    public void performApiAnalytics(){
+        System.out.println("\n========> Performing API Analytics");
+    }
 }
