@@ -36,10 +36,12 @@ public class AopdemoApplication {
 		// call the business method/target object method
 		Account myAccount = new Account("Rakesh", "25");
 		theAccountDAO.addAccount(myAccount, true);
+		theAccountDAO.doWork();
 
 		theMembershipDAO.addAccount();
 		theMembershipDAO.addMember();
 		theMembershipDAO.addMemberDetails();
+		theMembershipDAO.goToSleep();
 	}
 
 }
