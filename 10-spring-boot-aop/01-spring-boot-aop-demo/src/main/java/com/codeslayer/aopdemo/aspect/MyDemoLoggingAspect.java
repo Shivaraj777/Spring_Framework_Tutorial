@@ -18,15 +18,22 @@ public class MyDemoLoggingAspect {
         "execution(public void addAccount())" -> pointcut expression
         pointcut expression  ->  a predicate expression which describes where advice should be applied
         @Before advice -> to run the method before the target object method  ->  public void addAccount()
+        ================================================================================================================================================================
+        Pointcut expression types and wildcards for methods
+        ================================================================================================================================================================
         "execution(public void addAccount())"  ->  match all addAccount() with return type void irrespective of class
         "execution(public void com.codeslayer.aopdemo.dao.AccountDAO.addAccount())"  ->  match addAccount() for the specified fully qualified class/interface
         "execution(public void add*())"  ->  match all methods starting with add...
         "execution(public * add*())"  ->  match all methods starting with add... and any return type
+        ================================================================================================================================================================
+        Pointcut expression types and wildcards for method parameters
+        ================================================================================================================================================================
+        "execution(* add*(com.codeslayer.aopdemo.entity.Account))"  -> match methods with as single Account object as parameter
      */
     // @Before("execution(public void addAccount())")
     // @Before("execution(public void com.codeslayer.aopdemo.dao.AccountDAO.addAccount())")
     // @Before("execution(public void add*())")
-    @Before("execution(public * add*())")
+    @Before("execution(* add*(com.codeslayer.aopdemo.entity.Account))")
     public void beforeAddAccountAdvice(){
         System.out.println("\n========> Executing @Before Advice on method");
     }

@@ -2,6 +2,7 @@ package com.codeslayer.aopdemo;
 
 import com.codeslayer.aopdemo.dao.AccountDAO;
 import com.codeslayer.aopdemo.dao.MembershipDAO;
+import com.codeslayer.aopdemo.entity.Account;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -33,7 +34,9 @@ public class AopdemoApplication {
 	// method to display demo for @Before Advice annotation in AOP
 	private void demoTheBeforeAdvice(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO) {
 		// call the business method/target object method
-		theAccountDAO.addAccount();
+		Account myAccount = new Account("Rakesh", "25");
+		theAccountDAO.addAccount(myAccount);
+
 		theMembershipDAO.addAccount();
 		theMembershipDAO.addMember();
 		theMembershipDAO.addMemberDetails();
