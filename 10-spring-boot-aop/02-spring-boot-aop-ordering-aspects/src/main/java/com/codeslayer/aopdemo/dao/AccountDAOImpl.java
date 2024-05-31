@@ -3,11 +3,21 @@ package com.codeslayer.aopdemo.dao;
 import com.codeslayer.aopdemo.entity.Account;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Repository  // make the class available for component scanning -> sub-annotation of component
 public class AccountDAOImpl implements AccountDAO{
     private String name;
 
     private String serviceCode;
+
+    public AccountDAOImpl() { }
+
+    public AccountDAOImpl(String name, String serviceCode) {
+        this.name = name;
+        this.serviceCode = serviceCode;
+    }
 
     public String getName() {
         System.out.println(getClass() + ": in getName()");
@@ -27,6 +37,22 @@ public class AccountDAOImpl implements AccountDAO{
     public void setServiceCode(String serviceCode) {
         System.out.println(getClass() + ": in setServiceCode()");
         this.serviceCode = serviceCode;
+    }
+
+
+    @Override
+    public List<Account> findAccounts() {
+        List<Account> theAccounts = new ArrayList<>();
+
+        // create sample accounts and add it to list
+        Account tempAccount1 = new Account("Daren Mitchel", "1");
+        Account tempAccount2 = new Account("Kane Mama", "2");
+        Account tempAccount3 = new Account("Taylor Mama", "3");
+        theAccounts.add(tempAccount1);
+        theAccounts.add(tempAccount2);
+        theAccounts.add(tempAccount3);
+
+        return theAccounts;
     }
 
 

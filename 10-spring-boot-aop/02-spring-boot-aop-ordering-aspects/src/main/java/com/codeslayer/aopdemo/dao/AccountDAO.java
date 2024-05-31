@@ -2,6 +2,8 @@ package com.codeslayer.aopdemo.dao;
 
 import com.codeslayer.aopdemo.entity.Account;
 
+import java.util.List;
+
 public interface AccountDAO {
 
     void addAccount(Account theAccount, boolean vipFlag);
@@ -15,4 +17,6 @@ public interface AccountDAO {
     public String getServiceCode();
 
     public void setServiceCode(String serviceCode);
+
+    List<Account> findAccounts();
 }

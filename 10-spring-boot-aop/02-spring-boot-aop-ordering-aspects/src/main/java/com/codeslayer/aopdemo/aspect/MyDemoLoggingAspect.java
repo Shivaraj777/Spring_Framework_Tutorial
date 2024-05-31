@@ -2,12 +2,15 @@ package com.codeslayer.aopdemo.aspect;
 
 import com.codeslayer.aopdemo.entity.Account;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 /*
    @Aspect annotation is used to denote the class is an aspect
@@ -76,6 +79,20 @@ public class MyDemoLoggingAspect {
                 System.out.println("Account level: " + theAccount.getLevel());
             }
         }
+    }
+
+
+
+    /*
+        @AfterReturning advice is executed immediately after the target method call's successfull execution
+    */
+    @AfterReturning(
+            pointcut = "execution(* com.codeslayer.aopdemo.dao.AccountDAO.findAccounts(..))",
+            returning = "theAccounts")
+    public void afterReturningFindAccountsAdvice(JoinPoint theJoinPoint, List<Account> theAccounts){
+        String methodName = theJoinPoint.getSignature().toShortString();
+        System.out.println("\n=====>>> Executing @AfterReturning on method: " + methodName);
+        System.out.println("\n=====>>> result is: " + theAccounts);
     }
 
 }

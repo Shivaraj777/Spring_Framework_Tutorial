@@ -8,6 +8,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
+
 @SpringBootApplication
 public class AopdemoApplication {
 
@@ -26,8 +28,17 @@ public class AopdemoApplication {
 		// lambda expression - shorthand expression for creating an implementation for command runner
 		return runner -> {
 			// System.out.println("Hello");
-			demoTheBeforeAdvice(theAccountDAO, theMembershipDAO);
+			// demoTheBeforeAdvice(theAccountDAO, theMembershipDAO);
+			demoTheAfterReturningAdvice(theAccountDAO);
 		};
+	}
+
+
+	// method to display demo for @AfterReturning Advice annotation in AOP
+	private void demoTheAfterReturningAdvice(AccountDAO theAccountDAO) {
+		// call the business method/target object method to find accounts
+		List<Account> theAccounts = theAccountDAO.findAccounts();
+		System.out.println("Main program after returning: " + theAccounts + "\n");
 	}
 
 
@@ -49,5 +60,4 @@ public class AopdemoApplication {
 		theMembershipDAO.addMemberDetails();
 		theMembershipDAO.goToSleep();
 	}
-
 }
