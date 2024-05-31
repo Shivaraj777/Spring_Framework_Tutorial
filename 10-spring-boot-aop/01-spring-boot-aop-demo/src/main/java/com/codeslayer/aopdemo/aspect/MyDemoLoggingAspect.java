@@ -22,6 +22,18 @@ public class MyDemoLoggingAspect {
     @Pointcut("execution(* com.codeslayer.aopdemo.dao.*.*(..))")
     private void forDaoPackage() {};
 
+    // create a pointcut declaration to include getter methods for dao package
+    @Pointcut("execution(* com.codeslayer.aopdemo.dao.*.get*(..))")
+    private void getter() {};
+
+    // create a pointcut declaration to include setter methods for dao package
+    @Pointcut("execution(* com.codeslayer.aopdemo.dao.*.set*(..))")
+    private void setter() {};
+
+    // combine pointcut declaration to include package and exclude getter/setter
+    @Pointcut("forDaoPackage() && !(getter() || setter())")
+    private void forDaoPackageNoGetterSetter() {};
+
 
     /*
         "execution(public void addAccount())" -> pointcut expression
@@ -50,13 +62,15 @@ public class MyDemoLoggingAspect {
     // @Before("execution(* add*(com.codeslayer.aopdemo.entity.Account, ..))")
     // @Before("execution(* add*(..))")
     // @Before("execution(* com.codeslayer.aopdemo.dao.*.*(..))")
-    @Before("forDaoPackage()")    // apply the pointcut declaration to advice
+    // @Before("forDaoPackage()")    // apply the pointcut declaration to advice
+    @Before("forDaoPackageNoGetterSetter()")
     public void beforeAddAccountAdvice(){
         System.out.println("\n========> Executing @Before Advice on method");
     }
 
 
-    @Before("forDaoPackage()")    // apply the pointcut declaration to advice
+    // @Before("forDaoPackage()")    // apply the pointcut declaration to advice
+    @Before("forDaoPackageNoGetterSetter()")
     public void performApiAnalytics(){
         System.out.println("\n========> Performing API Analytics");
     }
