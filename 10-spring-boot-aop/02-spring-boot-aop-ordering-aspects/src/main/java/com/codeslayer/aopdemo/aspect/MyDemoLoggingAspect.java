@@ -1,8 +1,11 @@
 package com.codeslayer.aopdemo.aspect;
 
+import com.codeslayer.aopdemo.entity.Account;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -38,6 +41,12 @@ public class MyDemoLoggingAspect {
         "execution(* add*(..))"  ->  match methods with zero or any parameters
         "execution(* com.codeslayer.aopdemo.dao.*.*(..))"  -> match any class method for specified package(fully qualified path)
      */
+
+    /*
+        JoinPoint object contains metadata about the target method call
+        JoinPoint helps us to access target method arguments and signature
+    */
+
     // @Before("execution(public void addAccount())")
     // @Before("execution(public void com.codeslayer.aopdemo.dao.AccountDAO.addAccount())")
     // @Before("execution(public void add*())")
@@ -48,8 +57,25 @@ public class MyDemoLoggingAspect {
     // @Before("forDaoPackage()")    // apply the pointcut declaration to advice
     // @Before("forDaoPackageNoGetterSetter()")
     @Before("com.codeslayer.aopdemo.aspect.AopExpressions.forDaoPackageNoGetterSetter()")
-    public void beforeAddAccountAdvice(){
+    public void beforeAddAccountAdvice(JoinPoint theJoinPoint){
         System.out.println("\n========> Executing @Before Advice on method");
+
+        // display method signature
+        MethodSignature theMethodSignature = (MethodSignature) theJoinPoint.getSignature();
+        System.out.println("Method: " + theMethodSignature);
+
+        // display the method arguments
+        Object args[] = theJoinPoint.getArgs();
+        for(Object tempArg : args){
+            System.out.println(tempArg);
+
+            if(tempArg instanceof Account){
+                // downcast and print account specific details(convert from Object -> Account)
+                Account theAccount = (Account) tempArg;
+                System.out.println("Account Name: " + theAccount.getName());
+                System.out.println("Account level: " + theAccount.getLevel());
+            }
+        }
     }
 
 }
