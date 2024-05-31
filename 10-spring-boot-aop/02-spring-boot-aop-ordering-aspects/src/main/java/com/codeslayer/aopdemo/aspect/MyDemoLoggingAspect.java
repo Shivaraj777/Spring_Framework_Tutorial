@@ -93,6 +93,12 @@ public class MyDemoLoggingAspect {
         String methodName = theJoinPoint.getSignature().toShortString();
         System.out.println("\n=====>>> Executing @AfterReturning on method: " + methodName);
         System.out.println("\n=====>>> result is: " + theAccounts);
+
+        // modify the account data
+        if(!theAccounts.isEmpty()){
+            Account tempAccount = theAccounts.get(0);
+            tempAccount.setName("Daffy Duck");
+        }
     }
 
 }
