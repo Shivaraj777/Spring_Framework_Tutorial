@@ -10,6 +10,16 @@ public class TrafficFortuneServiceImpl implements TrafficFortuneService{
 
     @Override
     public String getFortune() {
+        return getFortune(false);
+    }
+
+
+    // return a fortune with exception handling case
+    @Override
+    public String getFortune(boolean tripWire) {
+        if(tripWire){
+            throw new RuntimeException("Major Accident! Highway is closed.");
+        }
         // simulate a delay
         try{
             TimeUnit.SECONDS.sleep(5);  // delay the execution for 5 seconds

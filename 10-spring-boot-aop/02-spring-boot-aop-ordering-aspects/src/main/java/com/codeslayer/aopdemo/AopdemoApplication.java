@@ -33,8 +33,20 @@ public class AopdemoApplication {
 			// demoTheAfterReturningAdvice(theAccountDAO);
 			// demoTheAfterThrowingAdvice(theAccountDAO);
 			// demoTheAfterAdvice(theAccountDAO);
-			demoTheAroundAdvice(theTrafficFortuneService);
+			// demoTheAroundAdvice(theTrafficFortuneService);
+			demoTheAroundAdviceHandleException(theTrafficFortuneService);
 		};
+	}
+
+
+	// method to display demo for @Around Advice annotation to handle exceptions in AOP
+	private void demoTheAroundAdviceHandleException(TrafficFortuneService theTrafficFortuneService) {
+		System.out.println("\n========> Main Program: demoTheAroundAdviceHandleException");
+		System.out.println("Calling getFortune()");
+		boolean tripWire = true;
+		String fortune = theTrafficFortuneService.getFortune(tripWire);
+		System.out.println("\nMy fortune is: " + fortune);
+		System.out.println("Finished");
 	}
 
 

@@ -135,6 +135,7 @@ public class MyDemoLoggingAspect {
         @Around advice is executed Before and after the target method call
         ---> here we are printing the time taken for a method to execute
         ProceedingJoinPoint object --> is used to handle operations on target method
+        we can use @Around advice to also handle exceptions from target method
     */
     @Around("execution(* com.codeslayer.aopdemo.service.*.getFortune(..))")
     public Object aroundGetException(ProceedingJoinPoint theProceedingJoinPoint) throws Throwable{
@@ -145,8 +146,17 @@ public class MyDemoLoggingAspect {
         // get begin timestamp
         long begin = System.currentTimeMillis();
 
-        // execute the target method
-        Object result = theProceedingJoinPoint.proceed();
+        // execute the target method(also handle exception from target method)
+        Object result = null;
+        try{
+            result = theProceedingJoinPoint.proceed();
+        }catch(Exception exc){
+            // log the exception
+            System.out.println("Exception: " + exc.getMessage());
+
+            // give user a custom message
+            result = "Major Accident! no worries, your private AOP helicopter is on the way to pick you up.";
+        }
 
         // get end timestamp
         long end = System.currentTimeMillis();
