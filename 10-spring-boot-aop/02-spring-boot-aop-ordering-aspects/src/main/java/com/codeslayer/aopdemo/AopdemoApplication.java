@@ -3,6 +3,7 @@ package com.codeslayer.aopdemo;
 import com.codeslayer.aopdemo.dao.AccountDAO;
 import com.codeslayer.aopdemo.dao.MembershipDAO;
 import com.codeslayer.aopdemo.entity.Account;
+import com.codeslayer.aopdemo.service.TrafficFortuneService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,15 +25,26 @@ public class AopdemoApplication {
 		AccountDAO is injected automatically -> because the method is annotated with @Bean
 	*/
 	@Bean
-	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO){
+	public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO, TrafficFortuneService theTrafficFortuneService){
 		// lambda expression - shorthand expression for creating an implementation for command runner
 		return runner -> {
 			// System.out.println("Hello");
 			// demoTheBeforeAdvice(theAccountDAO, theMembershipDAO);
 			// demoTheAfterReturningAdvice(theAccountDAO);
 			// demoTheAfterThrowingAdvice(theAccountDAO);
-			demoTheAfterAdvice(theAccountDAO);
+			// demoTheAfterAdvice(theAccountDAO);
+			demoTheAroundAdvice(theTrafficFortuneService);
 		};
+	}
+
+
+	// method to display demo for @Around Advice annotation in AOP
+	private void demoTheAroundAdvice(TrafficFortuneService theTrafficFortuneService) {
+		System.out.println("\n========> Main Program: demoTheAroundAdvice");
+		System.out.println("Calling getFortune()");
+		String fortune = theTrafficFortuneService.getFortune();
+		System.out.println("\nMy fortune is: " + fortune);
+		System.out.println("Finished");
 	}
 
 

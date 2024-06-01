@@ -2,6 +2,7 @@ package com.codeslayer.aopdemo.aspect;
 
 import com.codeslayer.aopdemo.entity.Account;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
@@ -126,6 +127,34 @@ public class MyDemoLoggingAspect {
     public void afterFinallyAccountsAdvice(JoinPoint theJoinPoint){
         String methodName = theJoinPoint.getSignature().toShortString();
         System.out.println("\n=====>>> Executing @After (finally) on method: " + methodName);
+    }
+
+
+
+    /*
+        @Around advice is executed Before and after the target method call
+        ---> here we are printing the time taken for a method to execute
+        ProceedingJoinPoint object --> is used to handle operations on target method
+    */
+    @Around("execution(* com.codeslayer.aopdemo.service.*.getFortune(..))")
+    public Object aroundGetException(ProceedingJoinPoint theProceedingJoinPoint) throws Throwable{
+        // print the method we are advising on
+        String methodName = theProceedingJoinPoint.getSignature().toShortString();
+        System.out.println("\n=====>>> Executing @Around on method: " + methodName);
+
+        // get begin timestamp
+        long begin = System.currentTimeMillis();
+
+        // execute the target method
+        Object result = theProceedingJoinPoint.proceed();
+
+        // get end timestamp
+        long end = System.currentTimeMillis();
+
+        // compute duration and display it
+        long duration = end - begin;
+        System.out.println("\n===========> Duration: " + duration/1000.0 + " seconds");
+        return result;
     }
 
 }
