@@ -136,7 +136,39 @@ public class MyDemoLoggingAspect {
         ---> here we are printing the time taken for a method to execute
         ProceedingJoinPoint object --> is used to handle operations on target method
         we can use @Around advice to also handle exceptions from target method
+        we can also use @Around advice to re throw exceptions
     */
+    //    @Around("execution(* com.codeslayer.aopdemo.service.*.getFortune(..))")
+    //    public Object aroundGetException(ProceedingJoinPoint theProceedingJoinPoint) throws Throwable{
+    //        // print the method we are advising on
+    //        String methodName = theProceedingJoinPoint.getSignature().toShortString();
+    //        System.out.println("\n=====>>> Executing @Around on method: " + methodName);
+    //
+    //        // get begin timestamp
+    //        long begin = System.currentTimeMillis();
+    //
+    //        // execute the target method(also handle exception from target method)
+    //        Object result = null;
+    //        try{
+    //            result = theProceedingJoinPoint.proceed();
+    //        }catch(Exception exc){
+    //            // log the exception
+    //            System.out.println("Exception: " + exc.getMessage());
+    //
+    //            // give user a custom message
+    //            result = "Major Accident! no worries, your private AOP helicopter is on the way to pick you up.";
+    //        }
+    //
+    //        // get end timestamp
+    //        long end = System.currentTimeMillis();
+    //
+    //        // compute duration and display it
+    //        long duration = end - begin;
+    //        System.out.println("\n===========> Duration: " + duration/1000.0 + " seconds");
+    //        return result;
+    //    }
+
+
     @Around("execution(* com.codeslayer.aopdemo.service.*.getFortune(..))")
     public Object aroundGetException(ProceedingJoinPoint theProceedingJoinPoint) throws Throwable{
         // print the method we are advising on
@@ -151,11 +183,9 @@ public class MyDemoLoggingAspect {
         try{
             result = theProceedingJoinPoint.proceed();
         }catch(Exception exc){
-            // log the exception
+            // log and rethrow the exception
             System.out.println("Exception: " + exc.getMessage());
-
-            // give user a custom message
-            result = "Major Accident! no worries, your private AOP helicopter is on the way to pick you up.";
+            throw exc;
         }
 
         // get end timestamp
