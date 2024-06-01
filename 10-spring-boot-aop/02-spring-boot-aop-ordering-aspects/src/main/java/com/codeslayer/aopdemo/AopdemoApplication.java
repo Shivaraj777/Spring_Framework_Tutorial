@@ -29,8 +29,42 @@ public class AopdemoApplication {
 		return runner -> {
 			// System.out.println("Hello");
 			// demoTheBeforeAdvice(theAccountDAO, theMembershipDAO);
-			demoTheAfterReturningAdvice(theAccountDAO);
+			// demoTheAfterReturningAdvice(theAccountDAO);
+			// demoTheAfterThrowingAdvice(theAccountDAO);
+			demoTheAfterAdvice(theAccountDAO);
 		};
+	}
+
+
+	// method to display demo for @After Advice annotation in AOP
+	private void demoTheAfterAdvice(AccountDAO theAccountDAO) {
+		// call the business method/target object method to find accounts
+		List<Account> theAccounts = null;
+		try{
+			// add a boolean flag to simulate the exception
+			boolean tripWire = true;
+			theAccounts = theAccountDAO.findAccounts(tripWire);
+		}catch(Exception e){
+			System.out.println("\n\nMain program: ...caught exception: " + e.getMessage());
+		}
+
+		System.out.println("Main program after throwing: " + theAccounts + "\n");
+	}
+
+
+	// method to display demo for @AfterThrowing Advice annotation in AOP
+	private void demoTheAfterThrowingAdvice(AccountDAO theAccountDAO) {
+		// call the business method/target object method to find accounts
+		List<Account> theAccounts = null;
+		try{
+			// add a boolean flag to simulate the exception
+			boolean tripWire = true;
+			theAccounts = theAccountDAO.findAccounts(tripWire);
+		}catch(Exception e){
+			System.out.println("\n\nMain program: ...caught exception: " + e.getMessage());
+		}
+
+		System.out.println("Main program after throwing: " + theAccounts + "\n");
 	}
 
 

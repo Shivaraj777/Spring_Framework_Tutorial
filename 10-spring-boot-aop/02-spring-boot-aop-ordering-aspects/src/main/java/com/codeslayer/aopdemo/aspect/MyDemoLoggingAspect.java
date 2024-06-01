@@ -2,10 +2,7 @@ package com.codeslayer.aopdemo.aspect;
 
 import com.codeslayer.aopdemo.entity.Account;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -99,6 +96,36 @@ public class MyDemoLoggingAspect {
             Account tempAccount = theAccounts.get(0);
             tempAccount.setName("Daffy Duck");
         }
+    }
+
+
+
+    /*
+        @AfterThrowing advice is executed when an exception is thrown in the target method
+        throwing parameter and Throwable parameter theExc should have same name
+    */
+    @AfterThrowing(
+            pointcut = "execution(* com.codeslayer.aopdemo.dao.AccountDAO.findAccounts(..))",
+            throwing = "theExc")
+    public void afterThrowingFindAccountsAdvice(JoinPoint theJoinPoint, Throwable theExc){
+        // log the method name
+        String methodName = theJoinPoint.getSignature().toShortString();
+        System.out.println("\n=====>>> Executing @AfterThrowing on method: " + methodName);
+
+        // log the exception
+        System.out.println("\n=====>>> The exception is: " + theExc.getMessage());
+    }
+
+
+
+    /*
+        @After advice is executed after target method call is completed
+        it is similar to finally block
+    */
+    @After("execution(* com.codeslayer.aopdemo.dao.AccountDAO.findAccounts(..))")
+    public void afterFinallyAccountsAdvice(JoinPoint theJoinPoint){
+        String methodName = theJoinPoint.getSignature().toShortString();
+        System.out.println("\n=====>>> Executing @After (finally) on method: " + methodName);
     }
 
 }
