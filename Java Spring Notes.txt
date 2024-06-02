@@ -564,5 +564,35 @@ If you are using IntelliJ Ultimate You may encounter this error:
 		 - only match within our project package
 			 @Before("execution (* com.luv2code. .add* (..))")
 			 Narrow pointcut expression to our package
+			 
 
+			 
+How to Access Legacy/Old Version of the Course
+How to Access the Old Course
+
+	 - The legacy/old videos are available in a separate course.
+
+	 - Note: The Legacy course was recorded in 2016. It is based on older versions of software: Eclipse, Spring Boot 2 and Spring 5.
+====
+	 - I will give you FREE access to the legacy Spring Hibernate course.
+	 - The course is set to "invitation only". Here are instructions on how to access the course.
+			 1. Visit the link below: https://www.udemy.com/course/spring-and-hibernate-for-beginners-legacy/
+			 2. Click the button: Request Access
+			 3. Wait for approx 24 hours for me to approve the request. Udemy will inform you when the request is approved.
+			 4. Once your request is approved, use coupon code: SPRING-LEGACY-QKEBE2
+			 
+	 - Course link: https://www.udemy.com/course/spring-and-hibernate-for-beginners-legacy/?couponCode=SPRING-LEGACY-QKEBE2
+	 - once you join the legacy course, then you have lifetime access to the course :-)
+====
+
+More course on spring boot:
+	 - Unit testing: https://www.udemy.com/course/spring-boot-unit-testing/?referralCode=4184DE360D78A70932EE
+	 
+	 - deploy spring boot apps to AWS: https://www.udemy.com/course/deploy-spring-boot-3-apps-to-aws/?referralCode=DCE8981B59C70BA6BDBF
+	 
+	 - hibernate advanced development techniques: https://www.udemy.com/course/hibernate-tutorial-advanced/?referralCode=6FB9E2BA9AF54A4C9E69
+	 
+	 - end to end project spring MVC: https://www.udemy.com/course/spring-boot-project-job-portal-web-app/?referralCode=BB9301596150194B61E2
+	 
+	 - full stack project: https://www.udemy.com/course/full-stack-react-and-java-spring-boot-the-developer-guide/?referralCode=4325FA579FD3D313E28D
 	 
