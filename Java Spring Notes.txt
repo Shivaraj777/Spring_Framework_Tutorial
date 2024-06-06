@@ -600,3 +600,14 @@ More course on spring boot:
 Spring Boot Unit testing:
 	 - 
 	 
+	 
+Generate a dependency in pom.xml:
+	 - open the project pom.xml
+	 - place the cursor where you want to add dependency in pom.xml file
+	 - click on Code in menu options
+	 - Click on Generate
+	 - Select Dependency
+	 - enter the dependency name ----> ex: junit-jupiter
+	 - select the latest/appropriate version of dependency
+	 - click on add
+	 
