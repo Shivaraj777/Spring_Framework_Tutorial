@@ -19,6 +19,7 @@ class DemoUtilsTest {
         System.out.println("@BeforeAll executes only once before all test methods");
     }
 
+    
     @BeforeEach
     void setupBeforeEach(){
         demoUtils = new DemoUtils();
@@ -36,6 +37,7 @@ class DemoUtilsTest {
     void tearDownAfterEach(){
         System.out.println("@AfterEach executes after the execution of each method");
     }
+
 
     // unit test to check if arithmetic result is equal/not-equal
     @Test
