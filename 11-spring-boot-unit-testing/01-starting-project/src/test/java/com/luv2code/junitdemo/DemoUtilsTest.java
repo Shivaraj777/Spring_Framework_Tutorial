@@ -9,7 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
     test classes are not public in general
     @Test annotation is used to create a unit test case
     By default @BeforeAll and @AfterAll methods must be static
+    @DisplayNameGeneration annotation is used to create custom test names automatically based on strategy
 */
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class DemoUtilsTest {
 
     DemoUtils demoUtils;
@@ -42,8 +44,8 @@ class DemoUtilsTest {
     // unit test to check if arithmetic result is equal/not-equal
     // @DisplayName annotation is used to provide a custom name to test case(displayed after execution)
     @Test
-    @DisplayName("Jira-110_Test_Null_and_Not_Null")
-    void testEqualsAndNotEquals(){
+    // @DisplayName("Jira-110_Test_Null_and_Not_Null")
+    void test_Equals_And_Not_Equals(){
         System.out.println("Running test: testEqualsAndNotEquals");
         assertEquals(6, demoUtils.add(2, 4), "2 + 4 must be 6");
         assertNotEquals(6, demoUtils.add(1, 9), "1 + 9 must not be 6");
@@ -52,8 +54,8 @@ class DemoUtilsTest {
 
     // unit test to check if an object is null/not null
     @Test
-    @DisplayName("Jira-110_Test_Equals_and_Not_Equals")
-    void testNullAndNotNull(){
+    // @DisplayName("Jira-110_Test_Equals_and_Not_Equals")
+    void test_Null_And_Not_Null(){
         System.out.println("Running test: testNullAndNotNull");
         String s1 = null;
         String s2 = "hello";
