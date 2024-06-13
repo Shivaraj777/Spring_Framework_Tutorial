@@ -599,8 +599,6 @@ More course on spring boot:
 	 
 Spring Boot Unit testing:
 	 - Testing the functionality of a code with expected result and actual result.
-	 - for java, we use junit for unit testing.
-	 - jupiter-junit
 	 
 	 
 Generate a dependency in pom.xml:
