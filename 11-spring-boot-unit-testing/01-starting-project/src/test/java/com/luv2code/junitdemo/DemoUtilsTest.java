@@ -40,7 +40,9 @@ class DemoUtilsTest {
 
 
     // unit test to check if arithmetic result is equal/not-equal
+    // @DisplayName annotation is used to provide a custom name to test case(displayed after execution)
     @Test
+    @DisplayName("Jira-110_Test_Null_and_Not_Null")
     void testEqualsAndNotEquals(){
         System.out.println("Running test: testEqualsAndNotEquals");
         assertEquals(6, demoUtils.add(2, 4), "2 + 4 must be 6");
@@ -50,6 +52,7 @@ class DemoUtilsTest {
 
     // unit test to check if an object is null/not null
     @Test
+    @DisplayName("Jira-110_Test_Equals_and_Not_Equals")
     void testNullAndNotNull(){
         System.out.println("Running test: testNullAndNotNull");
         String s1 = null;
