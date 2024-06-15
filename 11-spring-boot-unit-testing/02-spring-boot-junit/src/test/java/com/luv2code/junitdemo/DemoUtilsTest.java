@@ -62,4 +62,26 @@ class DemoUtilsTest {
         Assertions.assertNull(s1, "Object should be null!");
         Assertions.assertNotNull(s2, "Object should not be null");
     }
+
+
+    // unit test to check whether object reference is same or not same
+    @Test
+    @DisplayName("Jira-110_Test_Same_and_Not_Same")
+    void testSameAndNotSame(){
+        String str = "luv2code";
+        Assertions.assertSame(demoUtils.getAcademy(), demoUtils.getAcademyDuplicate(), "Object should refer to the same object");
+        Assertions.assertNotSame(str, demoUtils.getAcademy(), "Object should not refer to the same object");
+    }
+
+
+    // unit test to check whether number is grater than other
+    @Test
+    @DisplayName("Jira-110_Test_True_and_False")
+    void testTrueAndFalse(){
+        int gradeOne = 10;
+        int gradeTwo = 5;
+        Assertions.assertTrue(demoUtils.isGreater(gradeOne, gradeTwo), "This should return true");
+        Assertions.assertFalse(demoUtils.isGreater(gradeTwo, gradeOne), "This should return false");
+
+    }
 }
