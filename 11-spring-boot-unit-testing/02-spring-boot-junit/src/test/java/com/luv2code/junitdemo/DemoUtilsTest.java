@@ -2,6 +2,8 @@ package com.luv2code.junitdemo;
 
 import org.junit.jupiter.api.*;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
@@ -82,6 +84,32 @@ class DemoUtilsTest {
         int gradeTwo = 5;
         Assertions.assertTrue(demoUtils.isGreater(gradeOne, gradeTwo), "This should return true");
         Assertions.assertFalse(demoUtils.isGreater(gradeTwo, gradeOne), "This should return false");
+    }
 
+
+    // unit test to check whether array is equal
+    @Test
+    @DisplayName("Jira-110_Array_Equals")
+    void testArrayEquals(){
+        String[] stringArray = {"A", "B", "C"};
+        Assertions.assertArrayEquals(stringArray, demoUtils.getFirstThreeLettersOfAlphabet(), "Arrays should be the same");
+    }
+
+
+    // unit test to check if list is equal
+    @Test
+    @DisplayName("Jira-110_Iterable_Equals")
+    void testIterableEquals(){
+        List<String> theList = List.of("luv", "2", "code");
+        Assertions.assertIterableEquals(theList, demoUtils.getAcademyInList(), "Expected list should be same as actual list");
+    }
+
+
+    // unit test to check if lines of a string match
+    @Test
+    @DisplayName("Jira-110_Lines_match")
+    void testLinesMatch(){
+        List<String> theList = List.of("luv", "2", "code");
+        Assertions.assertLinesMatch(theList, demoUtils.getAcademyInList(), "Lines should match");
     }
 }
