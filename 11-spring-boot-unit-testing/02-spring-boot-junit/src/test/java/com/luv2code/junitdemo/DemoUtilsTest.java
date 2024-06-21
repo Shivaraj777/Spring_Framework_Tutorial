@@ -112,4 +112,13 @@ class DemoUtilsTest {
         List<String> theList = List.of("luv", "2", "code");
         Assertions.assertLinesMatch(theList, demoUtils.getAcademyInList(), "Lines should match");
     }
+
+
+    // unit test to check if a method throws an exception for values less than 0 and no exception for values greater than 0
+    @Test
+    @DisplayName("Jira-110_Throws_Exception")
+    void testThrowsException(){
+        Assertions.assertThrows(Exception.class, () -> {demoUtils.throwException(-1); }, "Should throw Exception for values less than 0");
+        Assertions.assertDoesNotThrow(() -> {demoUtils.throwException(3); }, "Should not throw Exception for values greater than 0");
+    }
 }
