@@ -10,11 +10,15 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 /*
     test classes are not public in general
-    @Test annotation is used to create a unit test case
+    @Test annotation is used to create a unit test case(denotes a method as a unit test case)
     By default @BeforeAll and @AfterAll methods must be static
     @DisplayNameGeneration annotation is used to create custom test names automatically based on strategy
+    @TestMethodOrder annotation is used to execute the test cases in a certain order based on the strategy provided
+        -> MethodOrderer.OrderAnnotation.class -> executes the methods in order according number specified in @Order annotation -> lowest numbers have highest precedence -> negative numbers are allowed
+        -> MethodOrderer.DisplayName.class -> executes the test methods in alphanumerical order of display names
 */
 // @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class DemoUtilsTest {
 
     DemoUtils demoUtils;
@@ -47,7 +51,8 @@ class DemoUtilsTest {
     // unit test to check if arithmetic result is equal/not-equal
     // @DisplayName annotation is used to provide a custom name to test case(displayed after execution)
     @Test
-    @DisplayName("Jira-110_Test_Null_and_Not_Null")
+    @DisplayName("Jira-110_Test_Equals_and_NotEquals")
+    @Order(1)
     void testEqualsAndNotEquals(){
         System.out.println("Running test: testEqualsAndNotEquals");
         assertEquals(6, demoUtils.add(2, 4), "2 + 4 must be 6");
@@ -57,7 +62,8 @@ class DemoUtilsTest {
 
     // unit test to check if an object is null/not null
     @Test
-    @DisplayName("Jira-110_Test_Equals_and_Not_Equals")
+    @DisplayName("Jira-110_Test_Null_and_NotNull")
+    @Order(-1)
     void testNullAndNotNull(){
         System.out.println("Running test: testNullAndNotNull");
         String s1 = null;
@@ -70,6 +76,7 @@ class DemoUtilsTest {
     // unit test to check whether object reference is same or not same
     @Test
     @DisplayName("Jira-110_Test_Same_and_Not_Same")
+    @Order(6)
     void testSameAndNotSame(){
         String str = "luv2code";
         Assertions.assertSame(demoUtils.getAcademy(), demoUtils.getAcademyDuplicate(), "Object should refer to the same object");
