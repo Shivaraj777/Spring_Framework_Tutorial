@@ -2,6 +2,7 @@ package com.luv2code.junitdemo;
 
 import org.junit.jupiter.api.*;
 
+import java.time.Duration;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -120,5 +121,13 @@ class DemoUtilsTest {
     void testThrowsException(){
         Assertions.assertThrows(Exception.class, () -> {demoUtils.throwException(-1); }, "Should throw Exception for values less than 0");
         Assertions.assertDoesNotThrow(() -> {demoUtils.throwException(3); }, "Should not throw Exception for values greater than 0");
+    }
+
+
+    // unit test to check whether a method does not exceed a certain time
+    @Test
+    @DisplayName("Jira-110_TimeOut_Check")
+    void testTimeout(){
+        Assertions.assertTimeoutPreemptively(Duration.ofSeconds(3), () -> { demoUtils.checkTimeout(); }, "Method should execute in 3 seconds");
     }
 }
