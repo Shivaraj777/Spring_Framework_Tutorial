@@ -1,5 +1,7 @@
 HELP.md
 target/
+coverage-report/
+unit-test-results/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/

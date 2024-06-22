@@ -60,6 +60,15 @@ class DemoUtilsTest {
     }
 
 
+    // unit test to check for multiplication of two numbers
+    @Test
+    @DisplayName("Jira-110_Test_Multiply")
+    void testMultiply(){
+        Assertions.assertEquals(10, demoUtils.multiply(2, 5), "2 * 5 must be 10");
+        Assertions.assertNotEquals(7, demoUtils.multiply(2, 5), "2 * 5 must not be 7");
+    }
+
+
     // unit test to check if an object is null/not null
     @Test
     @DisplayName("Jira-110_Test_Null_and_NotNull")
@@ -68,8 +77,8 @@ class DemoUtilsTest {
         System.out.println("Running test: testNullAndNotNull");
         String s1 = null;
         String s2 = "hello";
-        Assertions.assertNull(s1, "Object should be null!");
-        Assertions.assertNotNull(s2, "Object should not be null");
+        Assertions.assertNull(demoUtils.checkNull(s1), "Object should be null!");
+        Assertions.assertNotNull(demoUtils.checkNull(s2), "Object should not be null");
     }
 
 
