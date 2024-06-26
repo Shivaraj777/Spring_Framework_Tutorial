@@ -7,15 +7,31 @@ public class FizzBuzz {
     // If number is not divisible by 3 or 5, then print the number
 
     public static String compute(int i){
+       StringBuilder result = new StringBuilder();
         if((i % 3 == 0) && (i % 5 == 0)){
-            return "FizzBuzz";
+            result.append("FizzBuzz");
         }
         else if(i % 3 == 0){
-            return "Fizz";
+            result.append("Fizz");
         }else if(i % 5 == 0){
-            return "Buzz";
+            result.append("Buzz");
+        }else{
+            result.append(i);
         }
 
-        return Integer.toString(i);
+       return result.toString();
     }
+
+//    public static String compute(int i){
+//        if((i % 3 == 0) && (i % 5 == 0)){
+//            return "FizzBuzz";
+//        }
+//        else if(i % 3 == 0){
+//            return "Fizz";
+//        }else if(i % 5 == 0){
+//            return "Buzz";
+//        }
+//
+//        return Integer.toString(i);
+//    }
 }
