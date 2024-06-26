@@ -1,7 +1,15 @@
 package org.codeslayer.tdd;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
+
+/*
+    @ParameterizedTest annotation is used to create a parameterized unit test
+        name = "value={0}, expected={1}"    value and expected are test parameters from csv file
+    @CsvFileSource annotation is used read test parameters from csv file
+*/
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class FizzBuzzTest {
     // If number is divisible by 3, print Fizz
@@ -43,5 +51,15 @@ public class FizzBuzzTest {
     void testForNotDivisibleByThreeAndFive(){
         String expected = "2";
         Assertions.assertEquals(expected, FizzBuzz.compute(2), "Should return 2");
+    }
+
+
+    // unit test to execute Fizz Buzz logic for different test sets
+    @ParameterizedTest(name = "value={0}, expected={1}")
+    @CsvFileSource(resources = "/small-test-data.csv")
+    @DisplayName("Testing with small data file")
+    @Order(5)
+    void testSmallDataFile(int value, String expected){
+        Assertions.assertEquals(expected, FizzBuzz.compute(value), "Result should match expected");
     }
 }
