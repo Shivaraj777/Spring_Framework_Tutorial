@@ -3,7 +3,9 @@ package com.codeslayer.test;
 import com.codeslayer.demo.DemoApplication;
 import com.codeslayer.demo.models.CollegeStudent;
 import com.codeslayer.demo.models.StudentGrades;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -51,8 +53,45 @@ public class DemoApplicationTests2 {
         student.setStudentGrades(studentGrades);
     }
 
+
     @Test
     void demoTest(){
 
     }
+
+
+    @Test
+    @DisplayName("Adding_Grade_results_for_student_grades")
+    public void addGradeResultsForStudentGrades(){
+        Assertions.assertEquals(353.25, studentGrades.addGradeResultsForSingleClass(student.getStudentGrades().getMathGradeResults()), "The total Math grade of Student should be 353.25");
+    }
+
+
+    @Test
+    @DisplayName("Adding_Grade_results_for_student_grades_Not_Equal")
+    public void addGradeResultsForStudentGradesNotEqual(){
+        Assertions.assertNotEquals(400.00, studentGrades.addGradeResultsForSingleClass(student.getStudentGrades().getMathGradeResults()), "The total Math grade of Student should not be 400.00");
+    }
+
+
+    @Test
+    @DisplayName("Is_Grade_greater")
+    public void isGradeGreaterStudentGrades(){
+        Assertions.assertTrue(studentGrades.isGradeGreater(90, 75), "failure - should be true");
+    }
+
+
+    @Test
+    @DisplayName("Is_Grade_greater_false")
+    public void isGradeGreaterStudentGradesAssertFalse(){
+        Assertions.assertFalse(studentGrades.isGradeGreater(45, 75), "failure - should be false");
+    }
+
+
+    @Test
+    @DisplayName("Check_Null_for_student_grades")
+    public void checkNullForStudentGrades(){
+        Assertions.assertNotNull(studentGrades.checkNull(student.getStudentGrades().getMathGradeResults()), "Object should not be null");
+    }
+
 }
