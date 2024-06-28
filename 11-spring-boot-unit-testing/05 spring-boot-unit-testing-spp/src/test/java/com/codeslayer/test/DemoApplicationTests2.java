@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,6 +41,9 @@ public class DemoApplicationTests2 {
 
     @Autowired
     StudentGrades studentGrades;
+
+    @Autowired
+    ApplicationContext context;
 
 
     @BeforeEach
@@ -94,4 +98,39 @@ public class DemoApplicationTests2 {
         Assertions.assertNotNull(studentGrades.checkNull(student.getStudentGrades().getMathGradeResults()), "Object should not be null");
     }
 
+
+    @Test
+    @DisplayName("Create_students_without_grades_init")
+    public void createStudentsWithoutGradesInit(){
+        // create a CollegeStudent bean/object with the help of application context
+        CollegeStudent studentTwo = context.getBean("collegeStudent", CollegeStudent.class);
+        studentTwo.setFirstname("Diana");
+        studentTwo.setLastname("Penty");
+        studentTwo.setEmailAddress("diana.penty@codeslayer.com");
+        Assertions.assertNotNull(studentTwo.getFirstname());
+        Assertions.assertNotNull(studentTwo.getLastname());
+        Assertions.assertNotNull(studentTwo.getEmailAddress());
+        Assertions.assertNull(studentGrades.checkNull(studentTwo.getStudentGrades()));
+    }
+
+
+    @Test
+    @DisplayName("Verify_students_are_prototypes")
+    public void verifyStudentsArePrototypes(){
+        CollegeStudent studentTwo = context.getBean("collegeStudent", CollegeStudent.class);
+        Assertions.assertNotSame(student, studentTwo, "Student and studentTwo should not be same");
+    }
+
+
+    @Test
+    @DisplayName("Find_Grade_Point_Average")
+    public void findGradePointAverage(){
+        Assertions.assertAll("Testing all assertEquals",
+                () -> Assertions.assertEquals(353.25, studentGrades.addGradeResultsForSingleClass(
+                        student.getStudentGrades().getMathGradeResults())),
+                () -> Assertions.assertEquals(88.31, studentGrades.findGradePointAverage(
+                        student.getStudentGrades().getMathGradeResults())
+                )
+        );
+    }
 }
