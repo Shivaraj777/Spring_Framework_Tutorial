@@ -14,6 +14,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.ApplicationContext;
 
 @SpringBootTest(classes = DemoApplication.class)
@@ -29,14 +30,22 @@ public class MockAnnotationTests {
     StudentGrades studentGrades;
 
     // @Mock annotation is used create a mock/test double to replace Application DAO
-    @Mock
-    private ApplicationDao applicationDao;
+    // @Mock
+    // private ApplicationDao applicationDao;
 
     // @InjectMocks annotation is used to inject mock dependency to ApplicationService(meaning ApplicationService will call test double of ApplicationDAO)
     // only injects dependencies which are annotated with @Mock or @Spy
-    @InjectMocks
-    private ApplicationService applicationService;
+    // @InjectMocks
+    // private ApplicationService applicationService;
 
+    // @MockBean annotation is used to create a test double to replace Application DAO
+    // it also adds the bean to the spring application context and hence the dependency can be injected by using @Autowired
+    // using @MockBean we can inject both mock and normal dependencies
+    @MockBean
+    private ApplicationDao applicationDao;
+
+    @Autowired
+    private ApplicationService applicationService;
 
     @BeforeEach
     public void beforeEach(){
@@ -62,5 +71,22 @@ public class MockAnnotationTests {
 
         // verify how many times a ApplicationDAO method is executed during testing
         Mockito.verify(applicationDao, Mockito.times(1)).addGradeResultsForSingleClass(studentGrades.getMathGradeResults());
+    }
+
+
+    // mock test
+    @Test
+    @DisplayName("Find GPA")
+    public void assetEqualsTestFindGPA(){
+        Mockito.when(applicationDao.findGradePointAverage(studentGrades.getMathGradeResults())).thenReturn(88.31);
+        Assertions.assertEquals(88.31, applicationService.findGradePointAverage(studentGrades.getMathGradeResults()));
+    }
+
+
+    @Test
+    @DisplayName("Not Null")
+    public void testAssertNotNull(){
+        Mockito.when(applicationDao.checkNull(studentGrades.getMathGradeResults())).thenReturn(true);
+        Assertions.assertNotNull(applicationService.checkNull(studentGrades.getMathGradeResults()), "Object should not be null");
     }
 }
