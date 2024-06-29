@@ -89,4 +89,34 @@ public class MockAnnotationTests {
         Mockito.when(applicationDao.checkNull(studentGrades.getMathGradeResults())).thenReturn(true);
         Assertions.assertNotNull(applicationService.checkNull(studentGrades.getMathGradeResults()), "Object should not be null");
     }
+
+
+    // mock test to test whether service method throws an exception
+    @Test
+    @DisplayName("Throw Runtime exception")
+    public void testThrowRunTimeException(){
+        CollegeStudent studentTwo = (CollegeStudent) context.getBean("collegeStudent");
+
+        // setup expectation with mock response
+        Mockito.doThrow(new RuntimeException()).when(applicationDao).checkNull(studentTwo);
+        Assertions.assertThrows(RuntimeException.class, () -> { applicationService.checkNull(studentTwo); });
+        Mockito.verify(applicationDao, Mockito.times(1)).checkNull(studentTwo);
+    }
+
+
+    // mock test to check multiple calls for service method
+    @Test
+    @DisplayName("Multiple Stubbing")
+    public void testStubbingMultipleCalls(){
+        CollegeStudent studentTwo = (CollegeStudent) context.getBean("collegeStudent");
+
+        // setup expectations for multiple calls
+        Mockito.when(applicationDao.checkNull(studentTwo))
+                .thenThrow(new RuntimeException())
+                .thenReturn("Do not throw exception second time");
+
+        Assertions.assertThrows(RuntimeException.class, () -> { applicationService.checkNull(studentTwo); });
+        Assertions.assertEquals("Do not throw exception second time", applicationService.checkNull(studentTwo));
+        Mockito.verify(applicationDao, Mockito.times(2)).checkNull(studentTwo);
+    }
 }
